@@ -43,7 +43,7 @@ def update_database():
 
 @app.route('/')
 def my_load():
-    return render_template('/index.html')  # render a template
+    return render_template('/login.html')  # render a template
 
 
 if __name__ == '__main__':
