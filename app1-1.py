@@ -40,12 +40,25 @@ def filter_student():
 def update_database():
     mongo3.update()
 
+@app.route('/courses', methods=['POST'])
+def get_course_details():
+    data = request.json
+    d = {}
+    sess = proComments.login(data['username'], data['password'])
+
+    d = proComments.course_names()
+    print('nearly there..')
+    return render_template('courses.html', courses=d)
 
 @app.route('/')
 def my_load():
-    return render_template('/login.html')  # render a template
+    return render_template('index.html')  # render a template
+
+@app.route('/login', methods=['POST'])
+def my_login():
+    return render_template('login.html')  # render a template
 
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    app.run('0.0.0.0')
+    app.run(debug=True)
+    # app.run('0.0.0.0')

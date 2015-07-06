@@ -1,34 +1,13 @@
 import requests
 from requests_ntlm import HttpNtlmAuth
 from lxml import html
-import os
+import urllib
+from bs4 import BeautifulSoup
 
 main_url = "http://promonitor.carshalton.ac.uk/"
 # This is for the year
 home_url = "index/home.aspx?academicyearid=14/15"
-# The student group link
-student_group_url = "studentgroup/studentgroup.aspx?studentgroupid="
-# Individual student details
-student_details_url = "ilp/information/details.aspx?pmstudentid="
-student_furtherdetails_url = "ilp/information/furtherdetails.aspx?pmstudentid="
-# Meeting Comments
-student_comments_url = "ilp/MeetingsComments/Actions.aspx?pmstudentid="
-# Photo link
-student_photo_url = "ilp/studentphoto.aspx?pmstudentid="
-student_photo_size = "&Width=240&Height=240&ShowLearnerBadges=False"
 
-student_markbook = "studentgroup/markbook/studentunit.aspx?studentgroupid="
-# name = input("Please enter your username:")
-# username = 'Student\\charltonp' #+ name
-# password = 'Sutton2015' #input("please enter you password")
-#
-# session = requests.Session()
-# session.auth = HttpNtlmAuth(username, password)
-
-
-# Access the course details in the 'MY STUDENT GROUPS'
-#course_ids = parsed_body.xpath('//*[@id="ctl00_ctl00_cphNavigation_mnuStudentGroup"]//a/@href')
-#course_text = parsed_body.xpath('//*[@id="ctl00_ctl00_cphNavigation_mnuStudentGroup"]//a/text()')
 student_name_path = '//*[@id = "ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]//a/text()'
 student_comments_path = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_ucActionCommentList_dlComments"]//text()'
 
@@ -38,21 +17,18 @@ student_photo_path = '//td/img/@src'
 
 course_info = []
 info = []
-# session = ""
+session = ""
 # pic_img = []
 
 
 def login(myusername, password):
     usernme = "Student\\" + myusername
-    login.session = requests.Session()
-    login.session.auth = HttpNtlmAuth(usernme, password)
-    return login.session.verify
-
-def course_names():
+    session = requests.Session()
+    session.auth = HttpNtlmAuth(usernme, password)
 
     myUrl = 'http://promonitor.carshalton.ac.uk/Index/Search/coursesearch.aspx?academicyearid=14%2f15'
 
-    ourrequest = login.session.post(myUrl)
+    ourrequest = session.post(myUrl)
 
     parsed_body = html.fromstring(ourrequest.text)
 
@@ -85,7 +61,7 @@ def course_names():
         'hiddenInputToUpdateATBuffer_CommonToolkitScripts': '1'
     }
 
-    newrequest = login.session.post(myUrl, data=FormData, headers=headers)
+    newrequest = session.post(myUrl, data=FormData, headers=headers)
     parsed_body = html.fromstring(newrequest.text)
 
     test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvCourse"]//a'
@@ -97,8 +73,12 @@ def course_names():
             'name': c[0],
             'ref': c[1]
         }
-        courses.append(s)
-    return courses
+
+    courses.append(s)
+    #c_details = zip(course_text, course_ref)
+    return c_details
+
+    #print(list(c_details))
 
 
 # # Main logon site
@@ -107,13 +87,9 @@ def course_names():
 
 
 def course(data):
-    login(data)
-
     c_id = []
     courses = []
     print('Running courses?')
-
-    index_search = "Index/Search/coursesearch.aspx?academicyearid=14%2f15"
 
     for course_id in course_ids:
         c_id.append(course_id.split("=")[1])
