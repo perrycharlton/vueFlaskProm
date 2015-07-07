@@ -5,7 +5,9 @@
   </button>
  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     {% for value in courses %}
-    <li><a href="#" id="{{ value.ref }}">{{ value.name }}</a></li>
+    <li><a class="course_ref" onclick="get_students(this.id )"
+           href="#" id="{{ value['ref'] }}" data-toggle="tooltip" data-placement="right"
+           title="{{ value['details']}}">{{ value['name'] }}</a></li>
     {% endfor %}
   </ul>
 </div>

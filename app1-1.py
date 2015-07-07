@@ -16,11 +16,11 @@ def home1():
 @app.route('/students', methods=['POST'])
 def students():
     post = request.json
-    details = post['post']
-    page = post['path']
-    print("getting students", request.json, page)
-    return render_template(page + ".html",
-                           posts={'students': mongo3.get_filtered_students(details)})  # render a template
+    course_id = post['course_id']
+
+    print("getting students", request.json)
+    return render_template("students.html",
+                           posts={'students': proComments.course_details(course_id)})  # render a template
 
 
 @app.route('/_students', methods=['POST'])
@@ -49,6 +49,7 @@ def get_course_details():
     d = proComments.course_names()
     print('nearly there..')
     return render_template('courses.html', courses=d)
+
 
 @app.route('/')
 def my_load():

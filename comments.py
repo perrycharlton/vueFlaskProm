@@ -34,10 +34,15 @@ def login(myusername, password):
         '__LASTFOCUS': '',
         '__VIEWSTATE': viewstate,
         '__VIEWSTATEENCRYPTED': '',
-        '__EVENTVALIDATION': eventvalidation,
-        'ctl00$ctl00$countdowntimer2$hdnCountdowntime':'0',
-        'ctl00$ctl00$ddlAcademicYear':'14/15',
-        'ctl00$ctl00$cphContent$ContentPlaceHolder1$ddlUnit':'12223'
+        '__EVENTVALIDATION': eventvalidation
+        # '__LASTFOCUS': '',
+        # '__SCROLLPOSITIONX': '0',
+        # '__SCROLLPOSITIONY': '0',
+        # 'ctl00$ctl00$countdowntimer2$hdnCountdowntime': '0',
+        # 'ctl00$ctl00$ddlAcademicYear':'14/15',
+        # 'ctl00$ctl00$cphContent$ContentPlaceHolder1$ddlUnit': '12223',
+        # 'ctl00$ctl00$hdnIsDirty': 'False',
+        # 'ctl00$ctl00$pmcSpellChecker$txtSelectedSuggestion': ''
     }
 
     newrequest = session.post(myUrl, data=FormData, headers=headers)
@@ -70,4 +75,4 @@ def split_details(details):
 
 
 
-login("charltonp", "Sutton2015")
+# login("charltonp", "Sutton2015")

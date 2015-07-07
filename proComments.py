@@ -93,11 +93,13 @@ def course_names():
     course_text = parsed_body.xpath(test + '/text()')
     courses = []
     for c in zip(course_text, course_ref):
-        s = {
-            'name': c[0],
-            'ref': c[1]
-        }
-        courses.append(s)
+        if len(c[0].split(" ")[0]) < 7:
+            s = {
+                'name': c[0].split(" ")[0],
+                'details': c[0].split("(")[1].split(")")[0],
+                'ref': c[1]
+            }
+            courses.append(s)
     return courses
 
 
@@ -127,32 +129,37 @@ def course(data):
     return courses
 
 
-def course_details():
+def course_details(course_id):
     students_details = []
-    for course_id in course_ids:
-        s_id = []
-        c_id = course_id.split("=")[1]
-        # course_info.append(dict(zip(c_id, course_text)))
-        group_response = session.get(main_url + student_group_url + c_id)
-        group_parsed_body = html.fromstring(group_response.text)
-        # List of all the students in the group
-        student_groups = group_parsed_body.med(student_group_path)
-        for student_group in student_groups:
-            s_id.append(student_group.split("=")[1])
-        # List of the photo src in group
-        student_name = group_parsed_body.xpath(student_name_path)
-        photo_id = group_parsed_body.xpath(student_photo_path)
-        pic_id = split_details(photo_id)
-        s_details = zip(s_id, pic_id, student_name)
+    # for course_id in course_ids:
+    s_id = []
+    courseid_url = "/course/course.aspx?courseid="
+    # course_info.append(dict(zip(c_id, course_text)))
+    course_response = login.session.get(main_url + courseid_url + course_id + "&AcademicYearID=14/15")
+    course_parsed_body = html.fromstring(course_response.text)
 
-        for x in s_details:
-            s = {
-                's_id': x[0],
-                'pic_id': x[1],
-                's_name': str(x[2]),
-                'c_id': c_id
-            }
-            students_details.append(s)
+    student_course_id = course_parsed_body.xpath('//div/table/tbody/tr/td/a/@href')
+    _id = student_course_id.split("=")[1]
+    group_response = login.session.get(main_url + student_group_url + _id)
+    group_parsed_body = html.fromstring(group_response.text)
+    # List of all the students in the group
+    student_groups = group_parsed_body.xpath(student_group_path)
+    for student_group in student_groups:
+        s_id.append(student_group.split("=")[1])
+    # List of the photo src in group
+    student_name = group_parsed_body.xpath(student_name_path)
+    photo_id = group_parsed_body.xpath(student_photo_path)
+    pic_id = split_details(photo_id)
+    s_details = zip(s_id, pic_id, student_name)
+
+    for x in s_details:
+        s = {
+            's_id': x[0],
+            'pic_id': x[1],
+            's_name': str(x[2]),
+            'c_id': c_id
+        }
+        students_details.append(s)
     return students_details
     # return student_groups
 
