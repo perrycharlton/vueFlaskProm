@@ -44,7 +44,8 @@ def update_database():
 def get_course_details():
     data = request.json
     d = {}
-    sess = proComments.login(data['username'], data['password'])
+    # sess = proComments.login(data['username'], data['password'])
+    sess = proComments.login("charltonp", "Sutton2015")
 
     d = proComments.course_names()
     print('nearly there..')

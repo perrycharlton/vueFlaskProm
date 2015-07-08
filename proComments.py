@@ -1,23 +1,25 @@
 import requests
 from requests_ntlm import HttpNtlmAuth
 from lxml import html
+from bs4 import BeautifulSoup
+
 import os
 
-main_url = "http://promonitor.carshalton.ac.uk/"
+main_url = "http://promonitor.carshalton.ac.uk"
 # This is for the year
-home_url = "index/home.aspx?academicyearid=14/15"
+home_url = "/index/home.aspx?academicyearid=14/15"
 # The student group link
-student_group_url = "studentgroup/studentgroup.aspx?studentgroupid="
+student_group_url = "/studentgroup/studentgroup.aspx?studentgroupid="
 # Individual student details
-student_details_url = "ilp/information/details.aspx?pmstudentid="
-student_furtherdetails_url = "ilp/information/furtherdetails.aspx?pmstudentid="
+student_details_url = "/ilp/information/details.aspx?pmstudentid="
+student_furtherdetails_url = "/ilp/information/furtherdetails.aspx?pmstudentid="
 # Meeting Comments
-student_comments_url = "ilp/MeetingsComments/Actions.aspx?pmstudentid="
+student_comments_url = "/ilp/MeetingsComments/Actions.aspx?pmstudentid="
 # Photo link
-student_photo_url = "ilp/studentphoto.aspx?pmstudentid="
+student_photo_url = "/ilp/studentphoto.aspx?pmstudentid="
 student_photo_size = "&Width=240&Height=240&ShowLearnerBadges=False"
 
-student_markbook = "studentgroup/markbook/studentunit.aspx?studentgroupid="
+student_markbook = "/studentgroup/markbook/studentunit.aspx?studentgroupid="
 # name = input("Please enter your username:")
 # username = 'Student\\charltonp' #+ name
 # password = 'Sutton2015' #input("please enter you password")
@@ -29,12 +31,6 @@ student_markbook = "studentgroup/markbook/studentunit.aspx?studentgroupid="
 # Access the course details in the 'MY STUDENT GROUPS'
 #course_ids = parsed_body.xpath('//*[@id="ctl00_ctl00_cphNavigation_mnuStudentGroup"]//a/@href')
 #course_text = parsed_body.xpath('//*[@id="ctl00_ctl00_cphNavigation_mnuStudentGroup"]//a/text()')
-student_name_path = '//*[@id = "ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]//a/text()'
-student_comments_path = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_ucActionCommentList_dlComments"]//text()'
-
-student_group_path = '//div[4]/table/tr[td]/td[3]/a/@href'
-student_details_path = ['//*[@id="tblMain"]/tr/td[2]//table//tr[', ']/td[', ']/span/text()']
-student_photo_path = '//td/img/@src'
 
 course_info = []
 info = []
@@ -50,7 +46,7 @@ def login(myusername, password):
 
 def course_names():
 
-    myUrl = 'http://promonitor.carshalton.ac.uk/Index/Search/coursesearch.aspx?academicyearid=14%2f15'
+    myUrl = 'http://promonitor.carshalton.ac.uk/Index/Search/studentgroupsearch.aspx?academicyearid=14%2f15'
 
     ourrequest = login.session.post(myUrl)
 
@@ -65,10 +61,12 @@ def course_names():
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate',
-    'Referer': 'http://promonitor.carshalton.ac.uk/Index/Search/coursesearch.aspx?academicyearid=14%2f15',
+    'Referer': myUrl,
     'x-insight': 'activate',
     'Connection': 'keep-alive'
     }
+
+    prefix = 'ctl00$ctl00$cphContent$ContentPlaceHolder1$'
 
     FormData = {
         '__EVENTTARGET': '',
@@ -79,8 +77,12 @@ def course_names():
         '__EVENTVALIDATION': eventvalidation,
         'ctl00$ctl00$countdowntimer2$hdnCountdowntime': '0',
         'ctl00$ctl00$ddlAcademicYear': '14/15',
-        'ctl00$ctl00$cphContent$ContentPlaceHolder1$txtCourseCode': 'EA10',
-        'ctl00$ctl00$cphContent$ContentPlaceHolder1$txtCourseTitle': '',
+        prefix + 'txtStudentGroupCode': '',
+        prefix + 'txtStudentGroupTitle': '',
+        prefix + 'txtCourseCode': 'EA',
+        prefix + 'txtCourseTitle': '',
+        prefix + 'txtCourseName': '',
+        prefix + 'chkStudentGroupsWithStudents': 'on',
         'ctl00$ctl00$cphContent$ContentPlaceHolder1$btnSearch': 'Search',
         'hiddenInputToUpdateATBuffer_CommonToolkitScripts': '1'
     }
@@ -88,60 +90,61 @@ def course_names():
     newrequest = login.session.post(myUrl, data=FormData, headers=headers)
     parsed_body = html.fromstring(newrequest.text)
 
-    test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvCourse"]//a'
-    course_ref = split_details(parsed_body.xpath(test + '/@href'))
-    course_text = parsed_body.xpath(test + '/text()')
+    test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudentGroup"]/tr'
     courses = []
-    for c in zip(course_text, course_ref):
-        if len(c[0].split(" ")[0]) < 7:
-            s = {
-                'name': c[0].split(" ")[0],
-                'details': c[0].split("(")[1].split(")")[0],
-                'ref': c[1]
-            }
-            courses.append(s)
+    for course_ref in parsed_body.xpath(test):
+        for cr in course_ref.xpath("./td"):
+            for c in cr.xpath("./a"):
+                print('child ', course_ref[1].text_content(), c.attrib['href'])
+                if len(course_ref[1].text_content()) > 0:
+                    course_i = course_ref[1].text_content().split(" ", 1)
+                    if len(course_i[0]) < 7:
+                        s = {
+                            "c_code": course_i[0],
+                            "c_name": course_i[1].split("(")[1].split(")")[0],
+                            "c_ref": c.attrib['href'].split("=")[1]
+                        }
+                        courses.append(s)
     return courses
 
 
-# # Main logon site
-#     response = session.get(main_url + home_url)
-#     parsed_body = html.fromstring(response.text)
-
-
-def course(data):
-    login(data)
-
-    c_id = []
-    courses = []
-    print('Running courses?')
-
-    index_search = "Index/Search/coursesearch.aspx?academicyearid=14%2f15"
-
-    for course_id in course_ids:
-        c_id.append(course_id.split("=")[1])
-
-    for c in zip(c_id, course_text):
-        s = {
-            'c_id': c[0],
-            'c_name': c[1]
-        }
-        courses.append(s)
-    return courses
-
-
-def course_details(course_id):
+def course_details(_id):
     students_details = []
-    # for course_id in course_ids:
+    # # for course_id in course_ids:
     s_id = []
-    courseid_url = "/course/course.aspx?courseid="
-    # course_info.append(dict(zip(c_id, course_text)))
-    course_response = login.session.get(main_url + courseid_url + course_id + "&AcademicYearID=14/15")
-    course_parsed_body = html.fromstring(course_response.text)
+    student_name_path = '//*[@id = "ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]//a/text()'
+    student_comments_path = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_ucActionCommentList_dlComments"]//text()'
 
-    student_course_id = course_parsed_body.xpath('//div/table/tbody/tr/td/a/@href')
-    _id = student_course_id.split("=")[1]
+    student_group_path = '//div[4]/table/tr[td]/td[3]/a/@href'
+    student_details_path = ['//*[@id="tblMain"]/tr/td[2]//table//tr[', ']/td[', ']/span/text()']
+    student_photo_path = '//td/img/@src'
+
     group_response = login.session.get(main_url + student_group_url + _id)
-    group_parsed_body = html.fromstring(group_response.text)
+    parsed_body = html.fromstring(group_response.text)
+
+    test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]/tr'
+
+    for cr in parsed_body.xpath(test)[1: -1]:
+        # for cr in s_info.xpath("./td"):
+        print('parent ', cr.text_content())
+        t = cr.find('img')[0].attrib['src']
+        u = cr.find('a')[0].attrib['href']
+        w = cr.text_content
+            # v = cr[2].text
+
+            # for c in cr.findall("./"):
+            #     src = c.text
+            #     img = c.attrib['src']
+            #     print('child ', src, cr.text_content(),img)
+                # if len(s_info[1].text_content()) > 0:
+                #     course_i = s_info[1].text_content().split(" ", 1)
+                #     s = {
+                #         "c_code": course_i[0],
+                #         "c_name": course_i[1].split("(")[1].split(")")[0],
+                #         "c_ref": c.attrib['href'].split("=")[1]
+                #     }
+
+
     # List of all the students in the group
     student_groups = group_parsed_body.xpath(student_group_path)
     for student_group in student_groups:
