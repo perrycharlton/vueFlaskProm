@@ -51,7 +51,7 @@ def login(myusername, password):
     parsed_body = html.fromstring(newrequest.text)
     print(soup.prettify())
     print(soup.find_all('textarea'))
-    test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_ucMarkbookComment_txtComment_cccTextArea"]//textarea"]'
+    test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvUnitData"]'
     comment_details = parsed_body.xpath(test + '/text()')
     course_ref = split_details(comment_details)
 

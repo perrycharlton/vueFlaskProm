@@ -1,3 +1,4 @@
+<h3 id="course_title"></h3>
 <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Courses
@@ -5,9 +6,10 @@
   </button>
  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     {% for value in courses %}
-    <li><a class="course_ref" onclick="get_students(this.id )"
+    <li><a class="course_ref"
            href="#" id="{{ value['c_ref'] }}" data-toggle="tooltip" data-placement="right"
            title="{{ value['c_name']}}">{{ value['c_code'] }}</a></li>
     {% endfor %}
   </ul>
 </div>
+<div id="sub_page"></div>

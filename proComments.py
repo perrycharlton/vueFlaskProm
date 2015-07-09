@@ -110,61 +110,29 @@ def course_names():
 
 def course_details(_id):
     students_details = []
-    # # for course_id in course_ids:
-    s_id = []
-    student_name_path = '//*[@id = "ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]//a/text()'
-    student_comments_path = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_ucActionCommentList_dlComments"]//text()'
-
-    student_group_path = '//div[4]/table/tr[td]/td[3]/a/@href'
-    student_details_path = ['//*[@id="tblMain"]/tr/td[2]//table//tr[', ']/td[', ']/span/text()']
-    student_photo_path = '//td/img/@src'
-
     group_response = login.session.get(main_url + student_group_url + _id)
     parsed_body = html.fromstring(group_response.text)
 
     test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudent"]/tr'
 
     for cr in parsed_body.xpath(test)[1: -1]:
-        # for cr in s_info.xpath("./td"):
-        print('parent ', cr.text_content())
-        t = cr.find('img')[0].attrib['src']
-        u = cr.find('a')[0].attrib['href']
-        w = cr.text_content
-            # v = cr[2].text
-
-            # for c in cr.findall("./"):
-            #     src = c.text
-            #     img = c.attrib['src']
-            #     print('child ', src, cr.text_content(),img)
-                # if len(s_info[1].text_content()) > 0:
-                #     course_i = s_info[1].text_content().split(" ", 1)
-                #     s = {
-                #         "c_code": course_i[0],
-                #         "c_name": course_i[1].split("(")[1].split(")")[0],
-                #         "c_ref": c.attrib['href'].split("=")[1]
-                #     }
-
-
-    # List of all the students in the group
-    student_groups = group_parsed_body.xpath(student_group_path)
-    for student_group in student_groups:
-        s_id.append(student_group.split("=")[1])
-    # List of the photo src in group
-    student_name = group_parsed_body.xpath(student_name_path)
-    photo_id = group_parsed_body.xpath(student_photo_path)
-    pic_id = split_details(photo_id)
-    s_details = zip(s_id, pic_id, student_name)
-
-    for x in s_details:
+        # print('parent ', cr.text_content())
+        s_id = cr.xpath('./td[3]/a/@href')[0].split('=')[1]
+        m_details = student_further_details(s_id)
         s = {
-            's_id': x[0],
-            'pic_id': x[1],
-            's_name': str(x[2]),
-            'c_id': c_id
+            'img_id': photo_path(cr.xpath('./td/img/@src')),
+            'c_id': cr.xpath('./td[2]/text()'),
+            's_name': cr.xpath('./td[3]/a/text()')[0],
+            's_id': s_id,
+            's_c_email': cr.xpath('.//input/@value')[0]
         }
         students_details.append(s)
     return students_details
-    # return student_groups
+
+def photo_path(photo_id):
+    p_id = photo_id[0].split("=", 1)[1].split('&')[0]
+    path = main_url + student_photo_url + p_id + student_photo_size
+    return path
 
 
 def split_details(details):
@@ -174,29 +142,31 @@ def split_details(details):
     return x
 
 
-def student_details():
-    new_students = []
-    student_d = course_details()
-    for v in student_d:
-        student_response = session.get(main_url + student_details_url + v['s_id'])
-        student_parsed_body = html.fromstring(student_response.text)
+def student_further_details(s_id):
+    # new_students = []
+    # student_d = course_details()
+    # for v in student_d:
 
-        address = ', '.join(student_parsed_body.xpath(
-            student_details_path[0] + str(2) + student_details_path[1] + str(2) + student_details_path[2]))
-        mobile = ', '.join(student_parsed_body.xpath(
-            student_details_path[0] + str(5) + student_details_path[1] + str(3) + student_details_path[2]))
+    contact_details = '//*[@id="tblMain"]//table//table'
+    student_response = login.session.get(main_url + student_details_url + s_id)
+    student_parsed_body = html.fromstring(student_response.text)
 
-        further_details = session.get(main_url + student_furtherdetails_url + v['s_id'])
-        further_details_body = html.fromstring(further_details.text)
-        next_of_kin = further_details_body.xpath('//textarea/text()')
-        nok = (next_of_kin[1].strip())
+    address = ', '.join(student_parsed_body.xpath(
+        contact_details + str(2) + student_details_path[1] + str(2) + student_details_path[2]))
+    mobile = ', '.join(student_parsed_body.xpath(
+        student_details_path[0] + str(5) + student_details_path[1] + str(3) + student_details_path[2]))
 
-        v.update({
-            'Address': address,
-            'Mobile': mobile,
-            'Next of Kin': nok
-        })
-        new_students.append(v)
+    further_details = login.session.get(main_url + student_furtherdetails_url + v['s_id'])
+    further_details_body = html.fromstring(further_details.text)
+    next_of_kin = further_details_body.xpath('//textarea/text()')
+    nok = (next_of_kin[1].strip())
+
+    v.update({
+        'Address': address,
+        'Mobile': mobile,
+        'Next of Kin': nok
+    })
+    new_students.append(v)
     return new_students
 
 
@@ -245,4 +215,4 @@ def student_photos():
 
 
 # markbook_unit_comments()
-login("charltonp", "Sutton2015")
+

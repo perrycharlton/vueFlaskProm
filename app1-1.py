@@ -1,3 +1,5 @@
+#!/usr/bin/env python 3.4
+
 # import the Flask class from the flask module
 # sudo mongod --dbpath /media/public/software/mongodb/
 from flask import Flask, render_template, redirect, url_for, request, session, flash, jsonify
@@ -17,10 +19,9 @@ def home1():
 def students():
     post = request.json
     course_id = post['course_id']
-
     print("getting students", request.json)
     return render_template("students.html",
-                           posts={'students': proComments.course_details(course_id)})  # render a template
+           posts={'students': proComments.course_details(course_id)})  # render a template
 
 
 @app.route('/_students', methods=['POST'])

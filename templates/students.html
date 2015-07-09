@@ -1,31 +1,28 @@
 
-{% block title %}<h1 id="title">Promonitor details</h1>{% endblock %}
-{% for value in posts.students %}
+<!--{% for value in posts.students %}-->
+<h2 id="student_title"></h2>
 <div class="container">
     <div class="row" style="border-top: 1px dashed darkgray">
-        <h2>{{value['s_name']}}</h2>
-
+        <h2>{{ value['s_name'] }}</h2>
         <div class="col-sm-3">
-            <img src="{{ url_for('static', filename ='images/' + value['c_id'] + '/' + value['s_name'] + '.jpg') }}"
-                 id='{{value["s_id"] }}' class='img-circle student_photo' style="height: 120px;">
+            <img src='{{ value["img_id"] }}'
+                 id='{{value["s_id"] }}'
+                 class='img-circle student_photo'
+                 style="height: 120px;">
         </div>
         <div class="col-sm-3">
             <h3>Address:</h3>
-
             <p>{{ value['Address'] }}</p>
         </div>
         <div class="col-sm-3">
-            <h3>Mobile:</h3>
-
-            <p>{{ value['Mobile'] }}</p>
+            <p><strong>Mobile: </strong>{{ value['Mobile'] }}</p>
+            <p><strong>Email: </strong>{{ value['s_c_email'] }}</p>
         </div>
         <div class="col-sm-3">
-            <h3>Next of Kin:</h3>
 
-            <p>{{ value['Next of Kin'] }}</p>
         </div>
     </div>
 </div>
 <br>
 
-{% endfor %}
+<!--{% endfor %}-->
