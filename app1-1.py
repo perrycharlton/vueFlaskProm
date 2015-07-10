@@ -17,11 +17,12 @@ def home1():
 
 @app.route('/students', methods=['POST'])
 def students():
+    # may need to put extra field (tick box) to indicate to show all details just basic?
     post = request.json
     course_id = post['course_id']
-    print("getting students", request.json)
+    # print("getting students", request.json)
     return render_template("students.html",
-           posts={'students': proComments.course_details(course_id)})  # render a template
+           posts={'students': proComments.students_full_details(course_id)})  # render a template
 
 
 @app.route('/_students', methods=['POST'])
@@ -32,7 +33,7 @@ def filter_student():
     # details['courses'] = courses()
     if request.method == 'POST':
         data = request.json
-        print(data)
+        # print(data)
         details['students'] = mongo3.get_filtered_students(data)
         return render_template('students.html', posts=details)
 
@@ -49,7 +50,7 @@ def get_course_details():
     sess = proComments.login("charltonp", "Sutton2015")
 
     d = proComments.course_names()
-    print('nearly there..')
+    # print('nearly there..')
     return render_template('courses.html', courses=d)
 
 
@@ -63,5 +64,5 @@ def my_login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # app.run('0.0.0.0')
+    # app.run(debug=True)
+    app.run('0.0.0.0')
