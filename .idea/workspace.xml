@@ -1,68 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ceba1d34-f6f5-4ad0-90ad-ed27a81fb038" name="Default" comment="updated content">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/Common.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/Promonitor.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/courses/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/courses/courses.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/risk/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/risk/risk.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/my-style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/style.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-courses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-create-modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-creating-elements.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-http.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-student-attendance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-student-details.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-student-events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-student-marks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-student-more-details.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/a-students.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/attend_worker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/photo_worker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/student_form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/attendance.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/badges.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/contact_details.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/markbook.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/more_details.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/photo.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/markbook.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/student_details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/student_more_details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/student_temp.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/students_attendance.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.config.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app1-1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mongo3.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proComments.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prosoup.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/jquery-2.1.4.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mongoSettings.xml" afterPath="$PROJECT_DIR$/.idea/mongoSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pi-test-virt.iml" afterPath="$PROJECT_DIR$/.idea/pi-test-virt.iml" />
+    <list default="true" id="ceba1d34-f6f5-4ad0-90ad-ed27a81fb038" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/attend_worker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/npm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/photo_worker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/sort.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/student_form.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/students/badges.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/markbook.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/student_details.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/student_more_details.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/students.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/students_attendance.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comments.py" afterPath="$PROJECT_DIR$/comments.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/npm.js" afterPath="$PROJECT_DIR$/static/js/npm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/script.js" afterPath="$PROJECT_DIR$/static/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/courses.html" afterPath="$PROJECT_DIR$/templates/courses.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students.html" afterPath="$PROJECT_DIR$/templates/students.html" />
     </list>
     <ignored path="pi-test-virt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,7 +28,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/pi_test_virt$app.coverage" NAME="app Coverage Results" MODIFIED="1508592221752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pi_test_virt$app.coverage" NAME="app Coverage Results" MODIFIED="1508592993896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$/../python-test/watson-venv" />
@@ -98,18 +51,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="a-student-more-details.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/a-student-more-details.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="a-student-marks.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/a-student-marks.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,18 +60,6 @@
                 <element signature="e#0#68#0" expanded="true" />
                 <element signature="e#4703#5004#0" expanded="false" />
                 <element signature="e#5049#5307#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="a-student-events.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/a-student-events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,11 +124,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-324">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courses.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/courses.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -261,7 +210,6 @@
         <option value="$PROJECT_DIR$/static/js/sort.js" />
         <option value="$PROJECT_DIR$/static/js/attend_worker.js" />
         <option value="$PROJECT_DIR$/static/js/student_form.js" />
-        <option value="$PROJECT_DIR$/templates/test.html" />
         <option value="$PROJECT_DIR$/students/Students.py" />
         <option value="$PROJECT_DIR$/common/Common.py" />
         <option value="$PROJECT_DIR$/common/Promonitor.py" />
@@ -302,6 +250,7 @@
         <option value="$PROJECT_DIR$/static/js/a-create-modal.js" />
         <option value="$PROJECT_DIR$/static/js/a-creating-elements.js" />
         <option value="$PROJECT_DIR$/comments.py" />
+        <option value="$PROJECT_DIR$/templates/test.html" />
       </list>
     </option>
   </component>
@@ -440,46 +389,7 @@
             <path>
               <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="risk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="style.less" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="students" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pi-test-virt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pmonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -919,7 +829,14 @@
       <option name="project" value="LOCAL" />
       <updated>1436509238365</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="updated content">
+      <created>1508592391682</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1508592391682</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -927,7 +844,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1345" y="24" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39057592" sideWeight="0.631288" order="8" side_tool="true" content_ui="tabs" />
@@ -937,8 +853,9 @@
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10889994" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2764398" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18276137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12548369" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12548369" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24875621" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39057592" sideWeight="0.368712" order="3" side_tool="false" content_ui="tabs" />
@@ -951,7 +868,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16641222" sideWeight="0.15452363" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1014,16 +930,6 @@
           <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/static/js/students.js</url>
-          <line>280</line>
-          <option name="timeStamp" value="298" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/static/js/students.js</url>
-          <line>289</line>
-          <option name="timeStamp" value="299" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/js/a-student-events.js</url>
           <line>72</line>
           <option name="timeStamp" value="302" />
@@ -1042,13 +948,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/students/badges.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../flask/forms/formsvenv/lib/python3.5/site-packages/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1067,20 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/npm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1206,13 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/courses.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
@@ -1231,13 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/attend_worker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1286,43 +1157,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="509" column="0" lean-forward="false" selection-start-line="505" selection-start-column="7" selection-end-line="514" selection-end-column="9" />
-          <folding>
-            <element signature="e#53#985#0" expanded="false" />
-            <element signature="e#1017#1997#0" expanded="false" />
-            <element signature="e#2039#3431#0" expanded="false" />
-            <element signature="e#3130#3271#0" expanded="false" />
-            <element signature="e#3476#3866#0" expanded="false" />
-            <element signature="e#3898#4342#0" expanded="false" />
-            <element signature="e#4370#4734#0" expanded="false" />
-            <element signature="e#4771#5275#0" expanded="false" />
-            <element signature="e#5305#6254#0" expanded="false" />
-            <element signature="e#5595#5874#0" expanded="false" />
-            <element signature="e#5903#6128#0" expanded="false" />
-            <element signature="e#6290#8194#0" expanded="false" />
-            <element signature="e#8235#8825#0" expanded="false" />
-            <element signature="e#8861#9908#0" expanded="false" />
-            <element signature="e#9944#10187#0" expanded="false" />
-            <element signature="e#10226#11912#0" expanded="false" />
-            <element signature="e#11376#11906#0" expanded="false" />
-            <element signature="e#15492#15720#0" expanded="false" />
-            <element signature="e#15754#16184#0" expanded="false" />
-            <element signature="e#16223#16663#0" expanded="false" />
-            <element signature="e#16965#17467#0" expanded="false" />
-            <element signature="e#18282#19095#0" expanded="false" />
-            <element signature="e#19134#19862#0" expanded="false" />
-            <element signature="e#19898#20169#0" expanded="false" />
-            <element signature="e#20204#20541#0" expanded="false" />
-            <element signature="e#20584#21503#0" expanded="false" />
-            <element signature="e#20973#20997#0" expanded="false" />
-            <element signature="e#23539#24363#0" expanded="false" />
-            <element signature="e#24401#24620#0" expanded="false" />
-            <element signature="e#24651#25651#0" expanded="false" />
-            <element signature="e#25681#26044#0" expanded="false" />
-            <element signature="e#26091#26381#0" expanded="false" />
-            <element signature="e#26422#26898#0" expanded="false" />
-            <element signature="e#26938#28687#0" expanded="false" />
-            <element signature="e#28725#30317#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,7 +1190,7 @@
         <state relative-caret-position="1044">
           <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1473,10 +1308,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/attend_worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-324">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="54" />
           <folding />
         </state>
       </provider>
