@@ -1,29 +1,32 @@
 
-<!--{% for value in posts.students %}-->
-<h2 id="student_title"></h2>
-<div class="container">
-    <div class="row" style="border-top: 1px dashed darkgray">
-        <h2>{{ value['s_name'] }}</h2>
-        <div class="col-sm-3">
-            <img src='{{ value["img_id"] }}'
-                 id='{{value["s_id"] }}'
-                 class='img-circle student_photo'
-                 style="height: 120px;">
-        </div>
-        <div class="col-sm-3">
-            <h3>Address:</h3>
-            <p>{{ value['address'] }}</p>
-        </div>
-        <div class="col-sm-3">
-            <p><strong>Mobile: </strong>{{ value['mobile'] }}</p>
-            <p><strong>Phone: </strong>{{ value['phone'] }}</p>
-            <p><strong>Email: </strong>{{ value['email'] }}</p>
-        </div>
-        <div class="col-sm-3">
-            <p><strong>Next of Kin: </strong>{{ value['nok'] }}</p>
-        </div>
-    </div>
-</div>
-<br>
+{% for value in students %}
+<div id="{{ value['s_id'] }}" class="student">
+    <h2 id="student_title"></h2>
+    <div class="container">
+        <div class="row" style="border-top: 1px dashed darkgray">
+            <div class=" col-lg-6">
+            <h2 class="student_id">{{ value['s_name'] }}</h2>
 
-<!--{% endfor %}-->
+            </div>
+            <div class="row"></div>
+            <div class=" col-lg-6">
+                <div id="attendance{{ value['s_id'] }}"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <img src='{{ value["img_id"] }}'
+
+                     class='img-circle student_photo'
+                     style="height: 120px;">
+            </div>
+            <div id="more{{ value['s_id'] }}"></div>
+            <div id="even_more{{ value['s_id'] }}"></div>
+        </div>
+
+        <div id="marks{{ value['s_id'] }}"></div>
+    </div>
+    <br>
+</div>
+{% endfor %}
+

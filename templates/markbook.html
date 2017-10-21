@@ -1,0 +1,15 @@
+<div class="col-xs-9">
+{% for unit in value %}
+        <div class="row"><p class="col-sm-2"><strong>Unit:</strong></p>
+            <p class="col-sm-7">{{ unit['title'] }}</p></div>
+        {% for ass in unit['marks'] %}
+            <div class="row">
+                <p class="col-sm-3"><strong>{{ ass.ass }}:</strong></p>
+                {% if ass.tickv == True %}
+                <div> <span class="glyphicon glyphicon-ok"></span></div>
+            {% endif %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+

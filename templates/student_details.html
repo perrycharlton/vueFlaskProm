@@ -1,0 +1,14 @@
+<div class="col-sm-2">
+    <p><strong>Address:</strong></p>
+    {% for a in value['address'] %}
+    <p>{{ a }}</p>
+    {% endfor %}
+</div>
+<div class="col-sm-4">
+    <div class="row"><p class="col-sm-3"><strong>Mobile:</strong></p>
+        <p class="col-sm-9">{% for m in value['mobile'] %}{{ m }}{% endfor %}</p></div>
+    <div class="row"><p class="col-sm-3"><strong>Phone:</strong></p><p class="col-sm-9">{% for p in value['telephone'] %}{{ p }}{% endfor %}</p></div>
+    <div class="row"><p class="col-sm-3"><strong>Email:</strong></p><p class="col-sm-9">{% for e in value['email'] %}{{ e }}{% endfor %}</p></div>
+    <div class="row"><p class="col-sm-3"><strong>DOB:</strong></p><p class="col-sm-9">{% for d in value['dob'] %}{{ d }}{% endfor %}</p></div>
+
+</div>

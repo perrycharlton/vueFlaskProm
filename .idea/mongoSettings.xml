@@ -8,8 +8,11 @@
           <option name="label" value="pi-test" />
           <option name="serverUrls">
             <list>
-              <option value="pi-test:27017" />
+              <option value="localhost:27017" />
             </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
           </option>
         </ServerConfiguration>
       </list>

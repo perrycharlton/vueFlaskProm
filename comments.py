@@ -56,16 +56,7 @@ def login(myusername, password):
     course_ref = split_details(comment_details)
 
     print(course_ref)
-    # course_text = parsed_body.xpath(test + '/text()')
-    # courses = []
-    # for c in zip(course_text, course_ref):
-    #     s = {
-    #         'name': c[0],
-    #         'ref': c[1]
-    #     }
-    #
-    # courses.append(s)
-    #c_details = zip(course_text, course_ref)
+
 
 def split_details(details):
     x = []
@@ -73,6 +64,3 @@ def split_details(details):
         x.append(detail.split("=")[1].split('&')[0])
     return x
 
-
-
-# login("charltonp", "Sutton2015")

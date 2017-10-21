@@ -1,15 +1,26 @@
 <h3 id="course_title"></h3>
-<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Courses
-    <span class="caret"></span>
-  </button>
- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    {% for value in courses %}
-    <li><a class="course_ref"
-           href="#" id="{{ value['c_ref'] }}" data-toggle="tooltip" data-placement="right"
-           title="{{ value['c_name']}}">{{ value['c_code'] }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="row">
+    <div class="col-lg-2">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    aria-haspopup="true" aria-expanded="false">
+                Courses
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="course-select">
+                {% for value in courses %}
+                    <li><a class="course_ref"
+                           id="{{ value['c_ref'] }}" data-toggle="tooltip"
+                           title="{{ value['c_title'] }}">{{ value['c_code'] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div id="student_btn" class="col-lg-10 btn-toolbar"></div>
+</div>
+<div class="row">
+    <div id="student_options" class="col-lg-10"></div>
 </div>
 <div id="sub_page"></div>
+<div id="marks" class="hidden"></div>
