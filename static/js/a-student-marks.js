@@ -39,12 +39,13 @@ export const showStudentTask = (e) => {
                             let heading = {
                                 'title': studentDetail[0]['first-name'] + ' ' + studentDetail[0]['surname'],
                                 'info': 'Unit: ' + e.dataset['unit'] +
-                                    ' Task: ' +taskMarks['task']
+                                    ' Task: ' +taskMarks['task'],
+                                'grade': taskMarks['Grade']['value']
                             };
                             delete taskMarks['task'];
                             console.log(taskMarks);
                          //    here i need to sent this to a function to create a modal form for editing
-                             let modal = myModal(createModalData(taskMarks), heading);
+                             let modal = myModal(createModalData(taskMarks), createModalHeader(heading));
                              elm.appendChild(modal);
                              modal.style.display = 'block';
                              let btn = modal.querySelectorAll('button.modal-btn');
@@ -62,6 +63,25 @@ export const showStudentTask = (e) => {
         }
     }
 };
+
+//modal header specifically for marks
+function createModalHeader(headerText){
+    let header = document.createElement('div');
+    let title = document.createElement('h3');
+    let info = document.createElement('h4');
+
+    // let span = document.createElement('span');
+    // span.className = 'col-sm-2 glyphicon glyphicon-remove pull-right';
+
+    header.className = 'modal-header ' + headerText['grade'];
+    title.innerText = headerText['title'];
+    info.innerText = headerText['info'];
+    header.appendChild(title);
+    header.appendChild(info);
+
+    return header
+}
+
 
 function formClose (e, s_id, oldData) {
     if (e.currentTarget.textContent === 'Save') {

@@ -1,10 +1,8 @@
 
 export let myModal = (form, header) => {
     return createModalShell(
-         createModalHeader(header),
+         header,
          createModalContent(form)
-    // createModalData(data)*/
-
      );
 };
 
@@ -59,22 +57,5 @@ function createModalButtons() {
     return btnGroup;
 }
 
-function createModalHeader(headerText){
-    let header = document.createElement('div');
-    let title = document.createElement('h3');
-    let info = document.createElement('h4');
 
-    // let span = document.createElement('span');
-    // span.className = 'col-sm-2 glyphicon glyphicon-remove pull-right';
-
-    header.className = 'modal-header';
-    title.innerText = headerText['title'];
-    info.innerText = headerText['info'];
-    header.appendChild(title);
-    header.appendChild(info);
-
-    return header
-}
-
-// there need to be individual for each form this is for more data
 

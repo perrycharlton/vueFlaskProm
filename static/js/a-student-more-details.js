@@ -36,7 +36,7 @@ export let moreDetailsForm = (e) => {
         'title': studentDetail[0]['first-name'] + ' ' + studentDetail[0]['surname'],
         'info': 'Contact Information'
     };
-    let modal = myModal(form, heading);
+    let modal = myModal(form, createModalHeader(heading));
     // modal.setAttribute('data-student', s_id);
     elm.appendChild(modal);
     modal.style.display = 'block';
@@ -49,6 +49,25 @@ export let moreDetailsForm = (e) => {
         });
     }
 };
+
+//modal header specifically for marks
+function createModalHeader(headerText){
+    let header = document.createElement('div');
+    let title = document.createElement('h3');
+    let info = document.createElement('h4');
+
+    // let span = document.createElement('span');
+    // span.className = 'col-sm-2 glyphicon glyphicon-remove pull-right';
+
+    header.className = 'modal-header P';
+    title.innerText = headerText['title'];
+    info.innerText = headerText['info'];
+    header.appendChild(title);
+    header.appendChild(info);
+
+    return header
+}
+
 
 function formClose(e, s_id) {
     if (e.currentTarget.textContent === 'Save') {
