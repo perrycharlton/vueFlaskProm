@@ -93,6 +93,9 @@ def markbook(form, group_id, s_opt):
                 mark_date_name = check_list(page.xpath(table + '/tr[' + str(i) + ']/td[6]/input/@name'))
 
                 retakes = check_list(page.xpath(table + '//tr[' + str(i) + ']/td[9]/span//text()'))
+
+
+
                 # chrckpassed = page.xpath(table + '/tr[' + str(i) + ']/td')
 
                 # head.append({
@@ -118,5 +121,8 @@ def markbook(form, group_id, s_opt):
                     'Submit Date': {'value': submit_date, 'name': submit_date_name},
                     'Mark Date': {'value': mark_date, 'name': mark_date_name}
                 })
+    if i == len(countTr):
+        heads.append({'title': title, 'marks': head, 'unit': unit})
+
 
     return heads

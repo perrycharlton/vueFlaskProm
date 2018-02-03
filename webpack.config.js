@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+// var webpack = require('webpack');
 
 module.exports = {
     entry: './static/js/app.js',
@@ -20,15 +20,15 @@ module.exports = {
 
             {
                 test: /\.js$/,
-                use: [
+                use:[
                     {
                         loader: 'babel-loader',
                         options: {
                             presets: ['es2015']
                         }
                     }
-                ]
 
+                ]
             }
         ]
     },

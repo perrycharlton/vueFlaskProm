@@ -6,6 +6,7 @@ from students import attendance as ad
 from students import markbook as mbd
 from students import photo as pd
 from courses import courses as crd
+from risk import risk
 
 app = Flask(__name__)
 app.secret_key = "something_secret"
@@ -40,10 +41,12 @@ def path(path):
             session['group_id'] = group_id
             students = cd.students_full_details(group_id)
             session['students'] = students
+            # print(students)
             html = render_template('student_temp.html', students=students)
             return jsonify({'html': html, 'students': students})
         elif path == 'students_contact':
             students = session.get('students')
+            # print(students)
             student_details = cd.student_contact_details(students)
             return jsonify(student_details)
         elif path == 'students_further_details':
@@ -63,6 +66,15 @@ def path(path):
             group_id = session.get('group_id')
             updated_students = mbd.markbook_page(group_id, students)
             return jsonify(updated_students)
+        # ---------------------------------
+        elif path == 'risk_indicators':
+            # students = session.get('students')
+            group_id = session.get('group_id')
+            updated_risks = risk.get_risk(group_id)
+            # print(updated_risks)
+            return jsonify(updated_risks)
+        # ------------------------------------
+
         elif path == 'save_details':
             data = request.json
             result = md.saveMoreDetails(data)

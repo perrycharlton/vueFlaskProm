@@ -21,7 +21,7 @@ def students_full_details(c_id):
         r.append({
             's_id': s_id,
             'student-photo': photo_id,
-            'student-id': check_list(cr.xpath('./td[2]/text()')),
+            's_ref': check_list(cr.xpath('./td[2]/text()')),
             'student-name': name,
             'first-name': name.split(' ')[0],
             'surname': name.split(' ')[-1],

@@ -1,6 +1,6 @@
-@pass: rgb(10, 238, 28);
-@merit: #1114de;
-@dist: #ca0808;
+@pass: rgb(10, 162, 21);
+@merit: rgba(9, 10, 157, 0.74);
+@dist: #6c0707;
 @fail: rgba(194, 15, 20, 0.4);
 
 .P() {
@@ -90,4 +90,53 @@ table {
 .student-divider {
   padding-bottom: 15px;
   padding-top: 15px;
+}
+#sub_page {
+  .riskIndicator {
+    .riskPanel {
+      display: grid;
+      //grid-template-columns: repeat(7, auto);
+      //grid-row: 1;
+
+      //border-radius: 3px;
+
+      div{
+        border: solid thin lightgray;
+        text-align: center;
+        padding: 5px;
+        height: 30px;
+      }
+      .title {
+        grid-row: 1;
+        background: rgba(7, 6, 85, 0.75);
+        font-weight: bold;
+        color: white;
+      }
+      .data {
+        grid-row: 2;
+        background: rgba(192, 192, 192, 0.75);
+        //  :hover{
+        //    background: rgba(67, 67, 67, 0.75);
+        //    color: white;
+        //}
+      }
+      .No.Risk{
+        background: @pass;
+      }
+      .Medium{
+        background: @merit;
+        color: white;
+      }
+      .High{
+        background: @dist;
+        color: white;
+      }
+    }
+    //div:nth-child(odd){
+    //
+    //}
+    //div:nth-child(even){
+    //
+    //}
+  }
 }

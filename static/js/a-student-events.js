@@ -29,7 +29,10 @@ let showPanel = (e) => {
     }
     else if (name === 'risk') {
         let elm = document.getElementsByClassName('risk-msg');
+
         showHide(elm, checked);
+        let marks = document.getElementsByClassName('riskIndicator');
+        showHide(marks, checked);
     } else if (name === 'photo') {
         let elm = document.getElementsByClassName('student-photo');
         showHide(elm, checked);

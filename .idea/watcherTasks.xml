@@ -14,7 +14,8 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="" />
+      <option name="program" value="$PROJECT_DIR$/node_modules/babel-loader/package.json" />
+      <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ContentRoot$" />
@@ -40,6 +41,7 @@
       </option>
       <option name="outputFromStdout" value="true" />
       <option name="program" value="$PROJECT_DIR$/node_modules/less/bin/lessc" />
+      <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$FileDir$" />
@@ -59,9 +61,30 @@
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="program" value="/usr/bin/sass" />
+      <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
+      <envs />
+    </TaskOptions>
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="--progress --hide-modules" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="UNKNOWN" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="webpack" />
+      <option name="output" value="$ProjectFileDir$\static\dist\.bundle.js" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="$PROJECT_DIR$/node_modules/webpack/bin/webpack.js" />
+      <option name="runOnExternalChanges" value="true" />
+      <option name="scopeName" value="Scr" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$PROJECT_DIR$" />
       <envs />
     </TaskOptions>
   </component>

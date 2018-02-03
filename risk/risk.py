@@ -12,22 +12,32 @@ def get_risk(group_id):
     table = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudentGroup_AtRisk"]'
 
     r = []
+    count = len(page.xpath(table + '/tr'))
+    # print(count)
+    # for cr in page.xpath(table):
 
-    for cr in page.xpath(table):
-        # s = {}
-        s_id = cr.xpath('./td[3]/a/@href')[0].split('=')[1]
-        noTarget = check_list(cr.xpath('./td[6]/span/text()'))
-        noRiskComm = check_list(cr.xpath('./td[7]/span/text()'))
-        riskcomm = check_list(cr.xpath('./td[8]/span/text()'))
-        riskLevel = check_list(cr.xpath('./td[9]/input/@value'))
-        riskLevelName = check_list(cr.xpath('./td[9]/input/@name'))
+    for i in range(2, count + 1):
+        # print(1)
+        tr = '/tr[' + str(i) + ']'
+        s_id = check_list(page.xpath(table + tr + '/td[3]/a/@href')).split('=')[1]
+        # print(s_id)
+        avgAtnd = check_list(page.xpath(table + tr + '/td[4]/span/text()'))
+        avgPunc = check_list(page.xpath(table + tr + '/td[5]/span/text()'))
+        noTarget = check_list(page.xpath(table + tr + '/td[6]/span/text()'))
+        noRiskComm = check_list(page.xpath(table + tr + '/td[7]/span/text()'))
+        riskcomm = check_list(page.xpath(table + tr + '/td[8]/span/text()'))
+        riskLevel = check_list(page.xpath(table + tr + '/td[9]/input/@value'))
+        riskLevelTitle = check_list(page.xpath(table + tr + '/td[9]/img/@title'))
 
         r.append({
             's_id': s_id,
-            'noTarget': noTarget,
-            'noRiskComm': noRiskComm,
-            'riskcomm': riskcomm,
-            'riskLevel': riskLevel,
-            'riskLevelName': riskLevelName
+            'Avg. Attn:': avgAtnd,
+            'Avg. Punch:': avgPunc,
+            'No. of Targets': noTarget,
+            'No. Risk Comm.': noRiskComm,
+            'Risk Comm.': riskcomm,
+            'Risk Level': riskLevel,
+            'Risk Title': riskLevelTitle
         })
+    # r.append(stu)
     return r

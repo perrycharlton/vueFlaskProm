@@ -13,7 +13,8 @@ def course_names():
         {
             'ctl00$ctl00$countdowntimer2$hdnCountdowntime': '0',
             'ctl00$ctl00$ddlAcademicYear': pm.searchYear,
-            prefix + 'txtCourseCode': 'EA',
+            prefix + 'txtCourseCode': 'EA10',
+            'ctl00$ctl00$cphContent$ContentPlaceHolder1$chkStudentGroupsWithStudents': 'on',
             'ctl00$ctl00$cphContent$ContentPlaceHolder1$btnSearch': 'Search',
             'hiddenInputToUpdateATBuffer_CommonToolkitScripts': '1'
          }
@@ -25,12 +26,12 @@ def course_names():
     for course_ref in parsed_body.xpath(test):
         course_i = course_ref.text.split(" ", 1)
         code = course_i[0].split('-')[0]
-
+        course_title = course_i[1][1:-1] if len(course_i) > 1 else ""
         if len(code) == 6:
             courses.append({
                 "c_code": code,
                 "c_let": code[0:2],
                 "c_ref": course_ref.attrib['href'].split("=", 1)[1],
-                "c_title": course_i[0] + ' - ' + course_i[1][1:-1]
+                "c_title": course_i[0] + ' - ' + course_title
             })
     return courses

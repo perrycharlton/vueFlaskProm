@@ -449,7 +449,7 @@ export const createModalData = (data) => {
     let formData = {}, infoData = [];
     for (let key in data){
         if(typeof data[key] === 'object'){
-            alert(key);
+            // alert(key);
             formData[key] = data[key]
         } else {
             infoData[key] = data[key]

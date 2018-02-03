@@ -6,6 +6,7 @@ import {studentMarkbook} from './a-student-marks';
 import {studentsMoreDetails} from './a-student-more-details';
 import {createCheckBox, createBtn, createSortBtn, studentPanel, createMarkBookTable} from "./a-creating-elements";
 import {eventTickBox} from "./a-student-events";
+import {riskIndicators} from "./a-student-risk-indicators";
 
 export let getStudents = (id) => {
     let t = JSON.stringify({'group_id': id});
@@ -16,6 +17,8 @@ export let getStudents = (id) => {
         let students = data['students'];
         saveData(JSON.stringify(students), 'students');  // save student details to local storage
         saveData(JSON.stringify(page), 'studentsPage');
+
+
         studentPanel(students);
         // studentPanel(students, page);  // Create student panel
         //
@@ -40,8 +43,9 @@ let getPhoto = (students) => {
     }
 };
 
+
 let getStudentsDetails = () => {
-    //create option views from option buttons if selected show data and button
+    // create option views from option buttons if selected show data and button
     sendReq('POST', '/students_attendance').then((res) => {
         saveData(res, 'attendance');
         studentAttendance();
@@ -60,8 +64,13 @@ let getStudentsDetails = () => {
         studentsMoreDetails();
         // create the check boxes
     });
+    sendReq('POST', '/risk_indicators').then((res) => {
+        saveData(res, 'risk_indicators');
+        riskIndicators(res);
+        // create the check boxes
+    });
     sortStudents();
-    getTickBoxes()
+    getTickBoxes();
 };
 
 
