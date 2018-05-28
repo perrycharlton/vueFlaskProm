@@ -35,3 +35,21 @@ def course_names():
                 "c_title": course_i[0] + ' - ' + course_title
             })
     return courses
+
+def course_codes(courseCode = ""):
+    myUrl = '/Index/Search/coursesearch.aspx/GetCourseCode'
+    courseCode = pm.post_page(myUrl, courseCode)
+    print('courseCode')
+    courses = []
+    for course_ref in courseCode:
+        course_i = course_ref.text.split(" ", 1)
+        code = course_i[0].split('-')[0]
+        course_title = course_i[1][1:-1] if len(course_i) > 1 else ""
+        if len(code) == 6:
+            courses.append({
+                "c_code": code,
+                "c_let": code[0:2],
+                "c_ref": course_ref.attrib['href'].split("=", 1)[1],
+                "c_title": course_i[0] + ' - ' + course_title
+            })
+    return courses
