@@ -25,6 +25,10 @@ def post_page(url, data):
     response = login.session.post(main_url + url, data=data)
     return html.fromstring(response.text)
 
+def post_data(url, data):
+    response = login.session.post(main_url + url, json=data)
+    return response.text
+
 
 def get_formData(parsed_body):
     viewstate = check_list(parsed_body.xpath('//*[@id="__VIEWSTATE"]/@value'))

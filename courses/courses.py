@@ -1,11 +1,20 @@
 from common.Common import check_list
 from common import Promonitor as pm
+# from flask import jsonify
 
+def get_course_code(c):
+    courseCodeUrl = '/Index/Search/studentgroupsearch.aspx/GetCourseCode'
+    # c = {"prefixText":"e","count":10}
+    data = pm.post_data(courseCodeUrl, c)
+    return data
 
 def course_names():
     myUrl = '/Index/Search/studentgroupsearch.aspx?academicyearid=' + pm.searchYear
+    # Need to Get page first to obtain key data
     parsed_body = pm.get_page(myUrl)
+    # extract data from page create form to send back with post
     form = pm.get_formData(parsed_body)
+    form = {}
 
     prefix = 'ctl00$ctl00$cphContent$ContentPlaceHolder1$'
 
@@ -20,7 +29,10 @@ def course_names():
          }
     )
 
+    # Post for with key search data, this data should be static a my only need update occasionally
+    # need to check if it is stored before sending a request
     parsed_body = pm.post_page(myUrl, form)
+    # key areas to get data from
     test = '//*[@id="ctl00_ctl00_cphContent_ContentPlaceHolder1_gvStudentGroup"]//tr/td/a'
     courses = []
     for course_ref in parsed_body.xpath(test):

@@ -8,13 +8,15 @@ from students import photo as pd
 from courses import courses as crd
 from risk import risk
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder = "./dist",
+            template_folder = "./dist")
 app.secret_key = "something_secret"
 app.config['SESSION_TYPE'] = 'mongodb'
 
 
 @app.route('/', methods=['GET'])
-def hello():
+def index():
     return render_template('index.html')
 
 
@@ -32,10 +34,19 @@ def path(path):
             return jsonify({'msg': 'Ok'})
         elif path == 'login':
             details = request.json
+            # store password into session
             if pm.login(details['username'], details['password']):
                 courses = crd.course_names()
-                html = render_template('courses.html', courses=courses)
-                return jsonify({'html': html, 'courses': courses})
+                # html = render_template('courses.html', courses=courses)
+                return jsonify({'courses': courses})
+        elif path == 'getCourse':
+            details = request.json
+            print(details)
+            # if true carry on
+            if pm.login('charltonp', 'Cheam2017'):
+                courses = crd.get_course_code(details)
+                # html = render_template('courses.html', courses=courses)
+                return courses
         elif path == 'students':
             group_id = request.json['group_id']
             session['group_id'] = group_id
@@ -94,4 +105,5 @@ def student(photo_id):
 
 
 if __name__ == "__main__":
+
     app.run(host='0.0.0.0', debug=True)
