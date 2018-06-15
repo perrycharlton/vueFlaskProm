@@ -1,50 +1,63 @@
 <template lang="pug">
     .courses.page 
-        .title {{title}}
-        section.courses        
-            p {{preview}}
+        DisplayCourses(:courses='courses' :text="c_text")
+        h1 Select the curriculum
+        DisplayCourses(:courses='data' :text="d_text")
         section.promon
             ProMon
 </template>
 
 <script>
 
-
+import { getLogin } from "../tools/get-proMon-data"
 import  ProMon from "../components/ProMon.vue";
-
+import  DisplayCourses  from "../components/DisplayCourses.vue";
 export default {
     data() {
-        return {
-            title: "Hello from Perry",
-            preview: "Some random text",
-        }
-    },
-    
-    components: {
+    return {
+      credentials: {
+        username: '',
+        password: ''
+      },
+      courseCode:'EA1032',
+      loggingIn: false,
+      error: '',
+      
+      courses: '',
+      data: [
+        {
+        c_ref: 'Hello ref',
+        c_code: 'perrys code'
+      },
+      
+      {
+        c_ref: 'Goodbye ref',
+        c_code: 'Claire code'
+      }
+      ],
+      d_text: 'Select Curriculum',
+      c_text: 'Select Course Code',
+    }
+  },
+  components: {
+        DisplayCourses,
         ProMon
     },
-    computed: {
-        beforeCreate() {
-            console.log('This gets created first')
-        }
+  methods: {    
+    async login() { 
+      const credentials = {
+        username: this.credentials.username,
+        password: this.credentials.password,
+        courseCode: this.courseCode
+      }
+      this.courses = await getLogin(credentials)
     }
+  }
+
 }
 </script >
 
  <style lang='scss' scoped>
- 
-.title {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    box-sizing: border-box;
-    padding: 8px;
-    border: 1px solid rgb(97, 87, 185);
-    box-shadow: 0 2px 2px rgb(93, 89, 148);
-}
- div {
-    justify-content: center;
-    align-self: center;
-    color: red;
-} 
+
+
 </style>

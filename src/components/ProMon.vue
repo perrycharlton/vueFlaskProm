@@ -17,7 +17,7 @@
 import { updateCourseCodes, testData, getCourse, getCourses } from "../tools/get-proMon-data"
 
 export default {
-    name: 'proMon',
+    // name: 'proMon',
     data() {     
         return {
             isActive: true,

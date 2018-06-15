@@ -1,46 +1,74 @@
 <template lang='pug'>
-  .home.page
-    h1 {{ greet }}
-    h3 {{ job }}
-    form
-      input(type='text' v-model='corse.code')
-      input(type='text' v-model='credentials.username')
-      input(type='password' v-model='credentials.password')
-      button.btn btn-primary(@click="login()") Login
+  .page
+    .menuTop
+      navMenu(@clicked="onChildClick")
+    transition(name='router-anim')
+    keep-alive('courses')               
+    router-view.veiws 
+    
 </template>
 
 <script>
-import {  getLogin } from "../tools/get-proMon-data"
-export default {
 
-  data() {
-    return {
-      job:"Electrician",
-      greet:"Welcome Perry ",
-      credentials: {
-        username: '',
-        password: ''
-      },
-      loggingIn: false,
-      error: ''
-    }
-  },
-  methods: {
-    
-    async login() { 
-      const credentials = {
-        username: this.credentials.username,
-        password: this.credentials.password
-      }
-      let confirmed = await getLogin(credentials)
-      console.log(confirmed)
+import navMenu from '../components/SideNavBar.vue'
+
+export default {
+  components:{ navMenu },
+  
+  methods: {    
+    onChildClick = (v) => {
+      console.log(v)
+      this.$emit('clicked', v)
     }
   }
 }
 </script>
 <style lang='scss' scoped>
-.btn {
-  cursor: pointer;
+
+.page { 
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 6fr 2fr;
+  padding-bottom: 2em;
+}
+.views {
+  grid-column: 2/3;
+  border-color:gray;
+  // grid-row: 2/3;
+}
+.router-anim-enter-active {
+  animation: coming 1s;
+  animation-delay: 1s;
+  display: none;
+
+}
+
+.router-anim-leave-active {
+  animation: going 1s;
+  // display: hidden;
+}
+
+@keyframes going {
+  from {  
+    opacity: 1;
+   
+  }
+  to {
+    opacity: 0;
+    display: none;
+    transform: translateX(50%);
+  }
+}
+@keyframes coming {
+  from {
+    opacity: 0;
+    display: none;
+    transform: translateX(-50%);
+}
+  to {
+   opacity: 1;
+    // transform: translateX(0%);
+  }
   
 }
 

@@ -5,12 +5,13 @@ import App from './App.vue'
 import {routes} from './router/index'
 import StoreData from './store/Store'
 import Vuex from 'vuex';
-
+import axios from 'axios'
 // import 'jquery';
 // require('bootstrap');
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+
 
 const store  = new Vuex.Store(StoreData)
 
@@ -24,7 +25,7 @@ new Vue({
   router,
   store,
   data: {
-    message: 'This Heading Stays all the time!'
+
   },
   template: '<App/>',
   components: {

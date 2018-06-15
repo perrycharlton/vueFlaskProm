@@ -45,10 +45,57 @@ export const getCourses = async (data) => {
 
 export const getLogin = async (data) => {
         try {
-            const i =  await axios.post(`${url}login`, data)
-            console.log(i.data.d)
-            return i.data.d
+            const i =  await axios.post(`${url}promonitor/login`, data)
+            // will return course codes
+            console.log(i.data)
+            return i.data
         } catch(err) {
             console.log(err)
         }          
     }    
+
+export const adminLogOut = async () => {
+        try {
+            const i =  await axios.delete(`${url}admin/`)
+            // will return course codes
+            console.log(i.data)
+            return i.data
+        } catch(err) {
+            console.log(err)
+        }          
+    }  
+
+export const adminLogIn = async (data) => {
+        try {
+            let i = await axios.post(`${url}admin/`, data)
+            // will return token codes
+            console.log(i.data)
+            axios.defaults.headers.common['Admin_token'] = i.data.token
+            return i.data
+        } catch(err) {
+            console.log(err)
+        }          
+    }  
+
+export const getCr = async (data) => {
+    let resp = {}
+        try {
+            const i =  await axios.post(`${url}getCurric`, data)
+            // will return course codes
+            console.log(i.data)
+            resp['success'] = true
+            resp['resp'] = i.data
+            // return i.data.courses
+        } catch(err) {
+            resp['success'] = false
+            resp['err'] = err
+            console.log(err)
+            // return(err)
+        }   
+        return resp       
+    }    
+
+export const removeToken = () => {
+    delete axios.defaults.headers.common['Authorization']
+
+}
