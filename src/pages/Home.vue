@@ -16,7 +16,7 @@ export default {
   components:{ navMenu },
   
   methods: {    
-    onChildClick = (v) => {
+    onChildClick(v) {
       console.log(v)
       this.$emit('clicked', v)
     }

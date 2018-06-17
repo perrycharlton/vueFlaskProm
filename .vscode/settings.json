@@ -32,5 +32,6 @@
         "typescriptreact",
         "yml"
     ],
-    "python.envFile": "${workspaceFolder}/.env"
+    "python.envFile": "${workspaceFolder}/.env",
+    "tfvc.location": "/home/perry/Downloads/TEE-CLC-14.114.0/tf"
 }

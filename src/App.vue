@@ -20,7 +20,7 @@ components: {
   myHeader
 },
 methods: {
-  onChildClick = (v) => {
+  onChildClick(v) {
     console.log(v)
     headerMsg = v
   }
