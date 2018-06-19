@@ -11,8 +11,15 @@ import store from "../store/Store";
 
 
 const ifNotAuthenticated = (to, from, next) => {
+    console.log(`To: ${to.name}, From: ${from.name}`)
+
+    // If the user has an authentication token the continue to next
   if (!store.getters.isAuthenticated) {
     next()
+    return
+  }
+  if(to.name == 'about'){
+    next('/login')
     return
   }
   next('/faq')
@@ -55,5 +62,11 @@ export const routes = [
             name: 'admin',
             component: Admin,
             // beforeEnter: ifNotAuthenticated,
-        }
+        },
+        {
+           path: '/login',
+           name: 'login',
+           component: loginForm,
+           // beforeEnter: ifNotAuthenticated,
+       }
     ]

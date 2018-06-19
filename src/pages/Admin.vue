@@ -21,7 +21,7 @@
 import { adminLogOut, adminLogIn } from "../tools/get-proMon-data"
 
 export default {
-    name: 'courses',
+    name: 'admin',
     data() {     
         return {
             credentials: {
@@ -32,6 +32,9 @@ export default {
             posts: [],
             status: ""
         }
+    },
+    mounted() {
+        this.$emit("on-page-title-change", "This is the Admin title")
     },
     methods: {
         goHome() { this.$router.push('/')},

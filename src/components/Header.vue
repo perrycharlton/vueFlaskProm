@@ -10,17 +10,20 @@ export default {
     // let messege = 'Start',
     props:{
         msg: String,
-        message:
-        { 
-            type: String,
-            default: 'Start'
-        }
+        message: String   
     },
-    data() {
+    data() { 
         return {
-            messege: this.msg.length > 0 ? this.msg : this.message
-        }
+            messege: this.msg
+        }        
+    },
+    watch: {
+    // whenever question changes, this function will run
+    msg (v, n) {
+    //   console.log('This is the watch header change', v, n)
+      this.messege = v
     }
+  },
 }
 </script>
 <style lang="scss" scoped>

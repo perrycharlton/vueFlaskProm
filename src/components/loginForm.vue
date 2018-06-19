@@ -47,6 +47,9 @@ export default {
       this.cr = await AuthLogout()
       console.log(this.cr)
     }
+  },
+  mounted() {
+        this.$emit("on-page-title-change", "Please Log in first")
   }
 }
 </script>

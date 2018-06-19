@@ -1,10 +1,10 @@
 <template lang='pug'>
   .page
     .menuTop
-      navMenu(@clicked="onChildClick")
+      navMenu 
     transition(name='router-anim')
     keep-alive('courses')               
-    router-view.veiws 
+    router-view.veiws(@on-page-title-change="titleChange") 
     
 </template>
 
@@ -16,9 +16,9 @@ export default {
   components:{ navMenu },
   
   methods: {    
-    onChildClick(v) {
-      console.log(v)
-      this.$emit('clicked', v)
+    titleChange (v) {
+      console.log(v, 'this title')
+      this.$emit('title-change', v)
     }
   }
 }

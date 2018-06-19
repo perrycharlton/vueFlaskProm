@@ -5,23 +5,14 @@ div(id="navMenu")
         .nav
         router-link.nav-link(to="/" ) Home
         router-link.nav-link(to="/courses") Courses
-        router-link.nav-link(to="/faq" @click.native="click-event") Faq
-        router-link.nav-link(to="/about" @click="click-event") About   
-        router-link.nav-link(to="/admin" @click.native="click-event") Admin                   
+        router-link.nav-link(to="/faq") Faq
+        router-link.nav-link(to="/about") About   
+        router-link.nav-link(to="/admin") Admin                   
     
 </template>
 <script>
-export default {
-    model: {
-        event: 'clickEvent'
-    }, 
-    methods: {
-        clickEvent: (e) => {
-            console.log('event clicked')
-            this.$emit('clickEvent', 'Admin Home Page')
-        } 
-
-    }
+export default { 
+   
    
 }
 </script>
