@@ -28,7 +28,7 @@ export default {
 .page { 
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: 1fr 6fr 2fr;
+  grid-template-columns: 1fr 6fr 1fr;
   padding-bottom: 2em;
 }
 .views {

@@ -1,12 +1,7 @@
 <template lang="pug">
 .form
     form
-      .form-group.form-inline
-        label(for='username') User Name:
-        input.form-control(id='username' autocomplete='username' type='text' v-model='credentials.username')
-      .form-group.form-inline
-        label(for='current-password') Password:
-        input.form-control(id='current-password' autocomplete='current-password' type='password' v-model='credentials.password')
+      basicLogin
       button.btn.btn-primary.crs(@click.prevent="login()") Login
     DisplayCourses(:courses='courses' :text='text')
 
@@ -14,10 +9,12 @@
 <script>
 import { getLogin, AuthLogout } from "../tools/get-proMon-data"
 import  DisplayCourses  from "../components/DisplayCourses.vue";
+import basicLogin from "../slots/BasicLogin"
 export default {
     props: [
         // 'courses'
     ],
+    
   data() {
         return {
         credentials: {
@@ -31,7 +28,8 @@ export default {
     }
   },
   components: {
-      DisplayCourses
+      DisplayCourses,
+      basicLogin
     },
   methods: {    
     async login() { 
@@ -58,19 +56,6 @@ form {
   display: grid;
   grid-gap: .25em;
   grid-template-columns: 60% 10% 10%;
-  .form-group{
-    display: grid;
-    grid-column: 1;
-    grid-template-columns: 3fr 6fr 2fr;
-    grid-gap: 1em;
-    
-    label{
-      justify-self: right;
-    }    
-    input{
-      justify-self: left;
-    }
-  }
   button {
     // grid-column: 3;
     grid-row: 4;

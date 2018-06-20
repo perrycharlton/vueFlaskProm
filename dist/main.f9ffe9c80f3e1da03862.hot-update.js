@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/pages/Admin.vue?vue&type=template&id=7d392bdb&scoped=true&lang=pug":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options!./src/pages/Admin.vue?vue&type=template&id=7d392bdb&scoped=true&lang=pug ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"form\" }, [\n    _c(\n      \"form\",\n      [\n        _c(\"basicLogin\", { ref: \"child\" }),\n        _c(\"div\", { staticClass: \"space\" }),\n        _c(\n          \"button\",\n          {\n            staticClass: \"btn btn-primary\",\n            on: {\n              click: function($event) {\n                $event.preventDefault()\n                _vm.login()\n              }\n            }\n          },\n          [_vm._v(\"Login\")]\n        ),\n        _c(\n          \"button\",\n          {\n            staticClass: \"btn btn-primary\",\n            on: {\n              click: function($event) {\n                _vm.logOut()\n              }\n            }\n          },\n          [_vm._v(\"Logout\")]\n        ),\n        _c(\n          \"button\",\n          { staticClass: \"btn btn-primary\", on: { click: _vm.goHome } },\n          [_vm._v(\"Home\")]\n        )\n      ],\n      1\n    ),\n    _c(\"div\", { staticClass: \"course\" }, [_vm._v(_vm._s(_vm.status))])\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/pages/Admin.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ })
+
+})

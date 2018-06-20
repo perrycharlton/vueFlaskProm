@@ -7895,8 +7895,8 @@ body {
   display: -ms-grid;
   display: grid;
   grid-gap: 1em;
-  -ms-grid-columns: 1fr 6fr 2fr;
-      grid-template-columns: 1fr 6fr 2fr;
+  -ms-grid-columns: 1fr 6fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
   padding-bottom: 2em;
 }
 .views[data-v-5a90ec03] {
@@ -7984,27 +7984,29 @@ div.courses .users user[data-v-cc4a1074] {
 }
 
 
+.form-group[data-v-d2637d24] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+      grid-column: 1;
+  -ms-grid-columns: 4fr 6fr 1fr;
+      grid-template-columns: 4fr 6fr 1fr;
+  grid-gap: 1em;
+}
+.form-group label[data-v-d2637d24] {
+    justify-self: right;
+}
+.form-group input[data-v-d2637d24] {
+    justify-self: left;
+}
+
+
 form[data-v-eceaa526] {
   display: -ms-grid;
   display: grid;
   grid-gap: .25em;
   -ms-grid-columns: 60% 10% 10%;
       grid-template-columns: 60% 10% 10%;
-}
-form .form-group[data-v-eceaa526] {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-column: 1;
-        grid-column: 1;
-    -ms-grid-columns: 3fr 6fr 2fr;
-        grid-template-columns: 3fr 6fr 2fr;
-    grid-gap: 1em;
-}
-form .form-group label[data-v-eceaa526] {
-      justify-self: right;
-}
-form .form-group input[data-v-eceaa526] {
-      justify-self: left;
 }
 form button[data-v-eceaa526] {
     -ms-grid-row: 4;
@@ -8026,6 +8028,23 @@ div.courses[data-v-ebc84062] {
 
 
 
+.form-group[data-v-76a345c0] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+      grid-column: 1;
+  -ms-grid-columns: 4fr 6fr 1fr;
+      grid-template-columns: 4fr 6fr 1fr;
+  grid-gap: 1em;
+}
+.form-group label[data-v-76a345c0] {
+    justify-self: right;
+}
+.form-group input[data-v-76a345c0] {
+    justify-self: left;
+}
+
+
 form[data-v-7d392bdb] {
   display: -ms-grid;
   display: grid;
@@ -8033,23 +8052,8 @@ form[data-v-7d392bdb] {
   -ms-grid-columns: 60% 10% 10% 10%;
       grid-template-columns: 60% 10% 10% 10%;
 }
-form .form-group[data-v-7d392bdb] {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-column: 1;
-        grid-column: 1;
-    -ms-grid-columns: 3fr 6fr 2fr;
-        grid-template-columns: 3fr 6fr 2fr;
-    grid-gap: 1em;
-}
-form .form-group label[data-v-7d392bdb] {
-      justify-self: right;
-}
-form .form-group input[data-v-7d392bdb] {
-      justify-self: left;
-}
 form button[data-v-7d392bdb], form .space[data-v-7d392bdb] {
-    -ms-grid-row: 4;
-        grid-row: 4;
+    -ms-grid-row: 2;
+        grid-row: 2;
 }
 

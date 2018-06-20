@@ -1,35 +1,35 @@
 <template lang="pug">
     .form
         form
-            .form-group.form-inline
-                label(for='username') User Name:
-                input.form-control(id='username' autocomplete='username' type='text' v-model='credentials.username')
-            .form-group.form-inline
-                label(for='current-password') Password:
-                input.form-control(id='current-password' autocomplete='current-password' type='password' v-model='credentials.password')
+            // basicLogin(ref='child')
+            emailLogin(ref='child')
             .space
             button.btn.btn-primary(@click.prevent="login()") Login
             button.btn.btn-primary(@click="logOut()") Logout
             button.btn.btn-primary(@click="goHome") Home
         div.course {{ status }}
-
-    
 </template>
 
 <script>
 // let isActive = true
 import { adminLogOut, adminLogIn } from "../tools/get-proMon-data"
+// import basicLogin from "../slots/BasicLogin"
+import emailLogin from "../slots/EmailLogin"
 
 export default {
     name: 'admin',
+    components: {  
+        // basicLogin,
+        emailLogin
+    },
     data() {     
         return {
             credentials: {
                 username: '',
                 password: ''
             },
-            isActive: true,
-            posts: [],
+            // isActive: true,
+            // posts: [],
             status: ""
         }
     },
@@ -40,8 +40,9 @@ export default {
         goHome() { this.$router.push('/')},
         async login() { 
             const credentials = {
-                username: this.credentials.username,
-                password: this.credentials.password
+                email: this.$refs.child.$refs.email.value,
+                // username: this.$refs.child.$refs.username.value,
+                password: this.$refs.child.$refs.password.value
             }
             let r = await adminLogIn(credentials)
             console.log(r)
@@ -50,9 +51,6 @@ export default {
                 this.$router.push('/')
             } 
             },
-        
-        async filterUsers(type) { this.posts = await this.$store.dispatch('userFilter', type)},
-
         async logOut() { 
 
             let r = await adminLogOut()
@@ -77,22 +75,11 @@ form {
   display: grid;
   grid-gap: .25em;
   grid-template-columns: 60% 10% 10% 10%;
-  .form-group{
-    display: grid;
-    grid-column: 1;
-    grid-template-columns: 3fr 6fr 2fr;
-    grid-gap: 1em;
-    
-    label{
-      justify-self: right;
-    }    
-    input{
-      justify-self: left;
-    }
-  }
+  
   button, .space {
-    // grid-column: 3;
-    grid-row: 4;
+    // grid-column: 2;
+    grid-row: 2;
+    // align-self: center;
   }
 }
 </style>
