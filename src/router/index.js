@@ -3,6 +3,7 @@ import Home from '../pages/Home.vue'
 import  loginForm  from "../components/loginForm.vue";
 import Faq from '../pages/Faq.vue'
 import Courses from '../pages/Courses.vue'
+import Promonitor from '../promonitor/components/loginForm.vue'
 import About from '../pages/About.vue'
 import Admin from '../pages/Admin.vue'
 import navMenu from '../components/SideNavBar.vue'
@@ -44,6 +45,12 @@ export const routes = [
             path: '/faq',
             name: 'faq',
             component: Faq,
+        },
+        {
+            path: '/promonitor',
+            name: 'promonitor',
+            component: Promonitor,
+            // beforeEnter: ifNotAuthenticated,
         },
         {
             path: '/courses',

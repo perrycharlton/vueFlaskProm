@@ -8028,20 +8028,24 @@ div.courses[data-v-ebc84062] {
 
 
 
-.form-group[data-v-76a345c0] {
+form[data-v-227e7f0d] {
   display: -ms-grid;
   display: grid;
-  -ms-grid-column: 1;
-      grid-column: 1;
-  -ms-grid-columns: 4fr 6fr 1fr;
-      grid-template-columns: 4fr 6fr 1fr;
-  grid-gap: 1em;
+  grid-gap: .25em;
+  -ms-grid-columns: 60% 10% 10%;
+      grid-template-columns: 60% 10% 10%;
 }
-.form-group label[data-v-76a345c0] {
-    justify-self: right;
+form button[data-v-227e7f0d] {
+    -ms-grid-row: 4;
+        grid-row: 4;
 }
-.form-group input[data-v-76a345c0] {
-    justify-self: left;
+form .crc[data-v-227e7f0d] {
+    -ms-grid-column: 2;
+        grid-column: 2;
+}
+form .crs[data-v-227e7f0d] {
+    -ms-grid-column: 3;
+        grid-column: 3;
 }
 
 

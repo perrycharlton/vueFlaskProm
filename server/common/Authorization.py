@@ -10,6 +10,8 @@ def auth_required():
     auth = request.json
     # store password into session checks by connection to promonitor, return true or false?
     if auth and auth['username'] == env['ADMIN_USERNAME'] and auth['password'] == env['ADMIN_PASSWORD']:
+        # and auth['email'] == env['ADMIN_EMAIL']
+        
         # this will be taken from a user database
         session['username'] = {'username': auth['username'], 'access': 'admin'}
         # token = jwt.encode(
@@ -20,7 +22,7 @@ def auth_required():
         #         'SECRET_KEY'
         #     )
         # session['admin_token'] = token.decode('UTF-8')
-        return jsonify({'status': 'Token has been added to the session'})
+        return jsonify({'status': 'Token has been added to the session','username': auth['username']})
     return jsonify({'status': 'Incorrect password or username'})
 
 

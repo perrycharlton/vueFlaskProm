@@ -1,20 +1,17 @@
 <template lang='pug'>
   .page
     .menuTop
-      navMenu 
+      sideNavBar
     transition(name='router-anim')
     keep-alive('courses')               
-    router-view.veiws(@on-page-title-change="titleChange") 
-    
+    router-view.veiws(@on-page-title-change="titleChange")     
 </template>
-
 <script>
 
-import navMenu from '../components/SideNavBar.vue'
+import sideNavBar from '../components/SideNavBar.vue'
 
 export default {
-  components:{ navMenu },
-  
+  components:{ sideNavBar },
   methods: {    
     titleChange (v) {
       console.log(v, 'this title')
