@@ -9,9 +9,9 @@
 
 <script>
 
-import { getLogin } from "../tools/get-proMon-data"
-import  ProMon from "../components/ProMon.vue";
-import  DisplayCourses  from "../components/DisplayCourses.vue";
+import { getLogin } from "../external/get-proMon-data"
+import  ProMon from "./ProMon.vue";
+import  DisplayCourses  from "./DisplayCourses.vue";
 export default {
     data() {
     return {

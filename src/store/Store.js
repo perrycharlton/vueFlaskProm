@@ -1,5 +1,5 @@
 import Test from "../tools/get-dummy-data"
-import { testData, getCr, removeToken } from "../tools/get-proMon-data"
+import { testData, getCr, removeToken } from "../promonitor/external/get-proMon-data"
 export default {
     
     state: {

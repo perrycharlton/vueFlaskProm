@@ -14,7 +14,7 @@
 
 <script>
 // let isActive = true
-import { updateCourseCodes, testData, getCourse, getCourses } from "../tools/get-proMon-data"
+import { updateCourseCodes, testData, getCourse, getCourses } from "../external/get-proMon-data"
 
 export default {
     // name: 'proMon',

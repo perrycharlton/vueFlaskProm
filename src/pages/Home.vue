@@ -10,6 +10,7 @@
 
 import sideNavBar from '../components/SideNavBar.vue'
 
+
 export default {
   components:{ sideNavBar },
   methods: {    

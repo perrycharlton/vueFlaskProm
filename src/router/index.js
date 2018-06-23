@@ -1,12 +1,11 @@
 
-import Home from '../pages/Home.vue'
-import  loginForm  from "../components/loginForm.vue";
+import Start from '../pages/Start.vue'
+// import loginForm  from "../components/loginForm.vue";
 import Faq from '../pages/Faq.vue'
-import Courses from '../pages/Courses.vue'
+import Courses from '../promonitor/components/Courses.vue'
 import Promonitor from '../promonitor/components/loginForm.vue'
 import About from '../pages/About.vue'
 import Admin from '../pages/Admin.vue'
-import navMenu from '../components/SideNavBar.vue'
 import store from "../store/Store";
 
 
@@ -20,7 +19,7 @@ const ifNotAuthenticated = (to, from, next) => {
     return
   }
   if(to.name == 'about'){
-    next('/login')
+    next('/home')
     return
   }
   next('/faq')
@@ -38,7 +37,7 @@ export const routes = [
         {
             path: '/',
             name: 'home',
-            component: loginForm,
+            component: Start,
             
         },
         {
@@ -56,7 +55,7 @@ export const routes = [
             path: '/courses',
             name: 'courses',
             component: Courses,
-            beforeEnter: ifNotAuthenticated,
+            // beforeEnter: ifNotAuthenticated,
         },
         {
             path: '/about',
@@ -70,10 +69,10 @@ export const routes = [
             component: Admin,
             // beforeEnter: ifNotAuthenticated,
         },
-        {
-           path: '/login',
-           name: 'login',
-           component: loginForm,
-           // beforeEnter: ifNotAuthenticated,
-       }
+    //     {
+    //        path: '/login',
+    //        name: 'login',
+    //        component: loginForm,
+    //        // beforeEnter: ifNotAuthenticated,
+    //    }
     ]

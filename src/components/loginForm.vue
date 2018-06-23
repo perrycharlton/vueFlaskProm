@@ -3,12 +3,10 @@
     form
       basicLogin
       button.btn.btn-primary.crs(@click.prevent="login()") Login
-    DisplayCourses(:courses='courses' :text='text')
 
 </template>
 <script>
 import { getLogin, AuthLogout } from "../tools/get-proMon-data"
-import  DisplayCourses  from "../components/DisplayCourses.vue";
 import basicLogin from "../slots/BasicLogin"
 export default {
     props: [
@@ -28,7 +26,6 @@ export default {
     }
   },
   components: {
-      DisplayCourses,
       basicLogin
     },
   methods: {    

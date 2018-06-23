@@ -7,7 +7,7 @@
 
 </template>
 <script>
-import { getLogin, AuthLogout } from "../../tools/get-proMon-data"
+import { getLogin, AuthLogout } from "../external/get-proMon-data"
 // import  DisplayCourses  from "../components/DisplayCourses.vue";
 import basicLogin from "../../slots/BasicLogin"
 export default {
