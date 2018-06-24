@@ -2,9 +2,11 @@
   .page
     .menuTop
       sideNavBar
+      // (:userauth='userauth', :promAuth='promAuth')
     transition(name='router-anim')
     keep-alive('courses')               
-    router-view.veiws(@on-page-title-change="titleChange")     
+    router-view.veiws  
+    // (@on-page-title-change="titleChange" @user-auth="userAuth1" @prom-auth="promAuth1")     
 </template>
 <script>
 
@@ -13,12 +15,29 @@ import sideNavBar from '../components/SideNavBar.vue'
 
 export default {
   components:{ sideNavBar },
-  methods: {    
-    titleChange (v) {
-      console.log(v, 'this title')
-      this.$emit('title-change', v)
-    }
-  }
+  // mounted() {
+  //       this.$store.dispatch('updatePageTitle', "This Page is for Home")
+  //   },
+  // data: () => {
+  //   return {
+  //     userauth: false,
+  //     promAuth: false
+  //   }
+  // },
+  // methods: {    
+  //   titleChange (v) {
+  //     console.log(v, 'this title')
+  //     this.$emit('title-change', v)
+  //   },
+  //   userAuth1(d) {
+  //     console.log(d)
+  //     this.userauth = d
+  //   },
+  //   promAuth1(d) {
+  //     console.log(d)
+  //     this.promAuth = d
+  //   }
+  // }
 }
 </script>
 <style lang='scss' scoped>

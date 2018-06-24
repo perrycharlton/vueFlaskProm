@@ -3,6 +3,7 @@
     form
       basicLogin
       button.btn.btn-primary.crs(@click.prevent="login()") Login
+    router-view
 
 
 </template>
@@ -47,7 +48,7 @@ export default {
     }
   },
   mounted() {
-        this.$emit("on-page-title-change", "Welcome to Promonitor, Please log in")
+        this.$store.dispatch('updatePageTitle', "Welcome to Promonitor, Please log in")
   }
 }
 </script>

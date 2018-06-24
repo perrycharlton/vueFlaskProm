@@ -8028,14 +8028,32 @@ form .crs[data-v-227e7f0d] {
 }
 
 
-form[data-v-7d392bdb] {
+div.courses[data-v-4069eff0] {
+  padding: 1px;
+}
+div.courses .users[data-v-4069eff0] {
+    background-color: lightcoral;
+    padding: 1em;
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 1rem;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-self: center;
+}
+div.courses .users user[data-v-4069eff0] {
+      justify-self: center;
+}
+
+
+form[data-v-685efc62] {
   display: -ms-grid;
   display: grid;
   grid-gap: .25em;
   -ms-grid-columns: 60% 10% 10% 10%;
       grid-template-columns: 60% 10% 10% 10%;
 }
-form button[data-v-7d392bdb], form .space[data-v-7d392bdb] {
+form button[data-v-685efc62], form .space[data-v-685efc62] {
     -ms-grid-row: 2;
         grid-row: 2;
 }

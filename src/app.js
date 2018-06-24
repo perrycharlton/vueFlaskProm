@@ -5,7 +5,7 @@ import App from './App.vue'
 import {routes} from './router/index'
 import StoreData from './store/Store'
 import Vuex from 'vuex';
-import axios from 'axios'
+// import axios from 'axios'
 // import 'jquery';
 // require('bootstrap');
 

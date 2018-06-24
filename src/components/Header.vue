@@ -1,29 +1,15 @@
 <template lang='pug'>
     .header
-        h1 {{ messege }}
+        h1 {{ PageHeader }}
 </template>
 
 <script>
-import Vue from "vue";
-
 export default {
-    // let messege = 'Start',
-    props:{
-        msg: String,
-        message: String   
+    computed: {
+        PageHeader() {
+            return this.$store.getters.getPageTitle
+        }
     },
-    data() { 
-        return {
-            messege: this.msg
-        }        
-    },
-    watch: {
-    // whenever question changes, this function will run
-    msg (v, n) {
-    //   console.log('This is the watch header change', v, n)
-      this.messege = v
-    }
-  },
 }
 </script>
 <style lang="scss" scoped>

@@ -18,11 +18,12 @@
 // let isActive = true
 
 export default {
-    name: 'courses',
+    name: 'users',
     data() {     
         return {
             isActive: true,
-            posts: []
+            posts: [],
+
         }
     },
     methods: {

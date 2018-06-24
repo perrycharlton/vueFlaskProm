@@ -19,8 +19,8 @@ export const adminLogIn = async (data) => {
             let i = await axios.post(`${url}admin/`, data)
             // will return token codes
             console.log(i.data)
-            axios.defaults.headers.common['Admin_token'] = i.data.token
-            return i.data
+            // axios.defaults.headers.common['Admin_token'] = i.data.token
+            return i
         } catch(err) {
             console.log(err)
         }          

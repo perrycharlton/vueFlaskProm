@@ -1,14 +1,14 @@
 
-import Start from '../pages/Start.vue'
-// import loginForm  from "../components/loginForm.vue";
-import Faq from '../pages/Faq.vue'
-import Courses from '../promonitor/components/Courses.vue'
-import Promonitor from '../promonitor/components/loginForm.vue'
-import About from '../pages/About.vue'
-import Admin from '../pages/Admin.vue'
-import store from "../store/Store";
+import Start from '../components/Start.vue'
+import Faq from '../components/Faq.vue'
+import About from '../components/About.vue'
 
+import Promonitor from '../promonitor/routes/index'
+// import proRoutes from '../promonitor/routes/index'
 
+import Admin from '../admin/routes/index'
+
+import store from "../store/Store"
 
 const ifNotAuthenticated = (to, from, next) => {
     console.log(`To: ${to.name}, From: ${from.name}`)
@@ -37,42 +37,21 @@ export const routes = [
         {
             path: '/',
             name: 'home',
-            component: Start,
-            
+            component: Start,            
         },
         {
             path: '/faq',
             name: 'faq',
             component: Faq,
-        },
-        {
-            path: '/promonitor',
-            name: 'promonitor',
-            component: Promonitor,
-            // beforeEnter: ifNotAuthenticated,
-        },
-        {
-            path: '/courses',
-            name: 'courses',
-            component: Courses,
-            // beforeEnter: ifNotAuthenticated,
-        },
+        },        
         {
             path: '/about',
             name: 'about',
             component: About,
-            beforeEnter: ifNotAuthenticated,
-        },
-         {
-            path: '/admin',
-            name: 'admin',
-            component: Admin,
             // beforeEnter: ifNotAuthenticated,
         },
-    //     {
-    //        path: '/login',
-    //        name: 'login',
-    //        component: loginForm,
-    //        // beforeEnter: ifNotAuthenticated,
-    //    }
+        // This is the Promonitor Section
+        Promonitor,
+        // This is the Admin Section
+        Admin
     ]

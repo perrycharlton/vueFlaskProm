@@ -7,13 +7,15 @@
             button.btn.btn-primary(@click.prevent="login()") Login
             button.btn.btn-primary(@click="logOut()") Logout
             button.btn.btn-primary(@click="goHome") Home
-        div.course {{ status }}
+        div.course {{ Status }}
+        div {{ User }}
+        router-view
 </template>
 
 <script>
 
-import { adminLogOut, adminLogIn } from "../tools/get-admin-data"
-import basicLogin from "../slots/BasicLogin"
+import { adminLogOut, adminLogIn } from "../external/get-admin-data"
+import basicLogin from "../../slots/BasicLogin"
 // import emailLogin from "../slots/EmailLogin"
 
 export default {
@@ -28,32 +30,42 @@ export default {
                 username: '',
                 password: ''
             },
-            status: ""
+            status: "",
+            authenticated: false
         }
     },
+    computed: {
+        User() {
+            return this.$store.getters.currentState.username
+        },
+        Status() {
+            return this.$store.getters.authStatus
+        }
+
+    },
     mounted() {
-        this.$emit("on-page-title-change", "This is the Admin title")
+        this.$store.dispatch('updatePageTitle', "This is the Admin Page")
     },
     methods: {
         goHome() { this.$router.push('/')},
+
         async login() { 
+            console.log('login')
             const credentials = {
                 // email: this.$refs.child.$refs.email.value,
                 username: this.$refs.child.$refs.username.value,
                 password: this.$refs.child.$refs.password.value
             }
-            let r = await adminLogIn(credentials)
-            console.log(r)
-            this.status = r.status
-            if (r.status === 'logged out') {
-                this.$router.push('/')
-            } 
-            },
+            this.$store.dispatch('AdminLogin', credentials)
+        },
+
+
         async logOut() { 
 
             let r = await adminLogOut()
             console.log(r)
             this.status = r.status
+            // this.authenticated = false
             if (r.status === 'logged out') {
                 this.$router.push('/')
             } 

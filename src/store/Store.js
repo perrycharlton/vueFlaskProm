@@ -1,28 +1,41 @@
 import Test from "../tools/get-dummy-data"
 import { testData, getCr, removeToken } from "../promonitor/external/get-proMon-data"
+import { adminLogOut, adminLogIn } from "../admin/external/get-admin-data"
+
+
 export default {
     
     state: {
         users: [],
-        currentUsers: [],
+        currentUsers: {},
         token: localStorage.getItem('user-token') || '',
-        status: '',
+        status: false,
+        pageTitle: ""
     },
     getters: {
         users (state) {return state.users} ,
         currentState (state) {return state.currentUsers},
         proMon (state) {return state.proMon},
         isAuthenticated: state => !!state.token,
-        authStatus: state => state.status,
+        authStatus (state) {return state.status},
+        getPageTitle (state) {return state.pageTitle}
 
     },
     mutations: {
+        PageTitle(state, msg){
+            state.pageTitle = msg
+        },
         InitiateUsers(state, users) {
             state.users = users
             state.currentUsers = users            
         },
-        saveCurrentState(state, users) {
+        saveCurrentUser(state, user) {
+            let users = {
+                'username': user,
+                'Logged in': new Date()
+            }
             state.currentUsers = users
+            state.status = true
         },
         updateCurrentUsers(state, users) {
             state.currentUsers = users
@@ -39,9 +52,13 @@ export default {
         },
         AuthError: (state) => {
             state.status = 'error'
+            state.currentUsers = ''
         },
     },
     actions: {
+        updatePageTitle({commit}, msg) {
+            commit('PageTitle', msg)
+        },
         resetCurrentState({commit}) {
             let res = this.getters.users
             commit('updateCurrentUsers', res )
@@ -93,16 +110,16 @@ export default {
         async AuthRequest({commit, dispatch}, user) {
             // return await ((resolve, reject) => { // The Promise used for router redirect in login
                 
-                commit(AuthRequest)
+                commit('AuthRequest')
                 let res = await getCr(user)
                 if(res.success){
                      const token = res.data.token
                     localStorage.setItem('user-token', token) // store the token in localstorage
-                    commit(AuthSuccess, token)
+                    commit('AuthSuccess', token)
                     
                     // dispatch(USER_REQUEST)
                 } else {
-                    commit(AuthError, res.err)
+                    commit('AuthError', res.err)
                     localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
                     // reject(err)
                 }
@@ -113,6 +130,20 @@ export default {
                 commit(AuthLogout)
                 localStorage.removeItem('user-token') // clear your user's token from localstorage
             return "User Logged Out"
+        },
+        async AdminLogin({commit, dispatch}, user) {
+            // return await ((resolve, reject) => { // The Promise used for router redirect in login
+                
+                commit('AuthRequest')
+                let res = await adminLogIn(user)
+                if(res.status === 200){
+                    // console.log(res)
+                    commit('saveCurrentUser', res.data.username)
+                } else {
+                    return res.data.status
+                }
+               
+            // })
         },
         AdminLogout({commit, dispatch}) {
                 commit(AdminLogout)

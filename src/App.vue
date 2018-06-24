@@ -1,8 +1,8 @@
 <template lang='pug'>
   .pageTop
-    myHeader(:msg='headerMsg')
+    myHeader
     .mainContainer
-      home(@title-change='onChildClick')
+      home
 </template>
 
 <script>
@@ -10,20 +10,9 @@ import home from './pages/Home.vue'
 import myHeader from './components/Header.vue'
 
 export default {
-
-  data() {   
-    return {
-      headerMsg : 'Welcome to the login Page'
-    }
-  },
   components: {  
     home, 
     myHeader
-  },
-  methods: {
-    onChildClick(v) {
-      this.headerMsg = v
-    }
   }
 }
 </script>
