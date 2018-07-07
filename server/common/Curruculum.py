@@ -1,6 +1,7 @@
 import requests
 from requests_ntlm import HttpNtlmAuth
 from lxml import html
+from bs4 import BeautifulSoup
 from server.common.Common import check_list
 from server.common import Promonitor as pm
 
@@ -9,13 +10,12 @@ main_url = "http://promonitor.carshalton.ac.uk"
 home_url = "/Index/Search/structuresearch.aspx?academicyearid=" + searchYear
 
 
-def course_names():
+def course_codes():
     # Need to Get page first to obtain key data
     parsed_body = pm.get_page(home_url)
 
     # extract data from page create form to send back with post
     form = pm.get_formDataCuric(parsed_body)
-    # form = {}
 
     form.update(
         {
@@ -46,3 +46,11 @@ def course_names():
                 "c_title": course_title
             })
     return courses
+
+
+def user_name(page):
+    soup = BeautifulSoup(page, "lxml")
+    name = soup.find(id="ctl00_ctl00_cphContent_ContentPlaceHolder1_lblStaffName").string
+    username = soup.find(id="ctl00_ctl00_cphContent_ContentPlaceHolder1_lblUsername").string
+    u_name =  name.split(' ')
+    return {'name': name, 'first_name': u_name[0], 'surname': u_name[1], 'username': username}

@@ -2,8 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import 'bootstrap'
 import App from './App.vue'
-import {routes} from './router/index'
-import StoreData from './store/Store'
+import {routes} from './main/router/index'
+import StoreData from './main/store/Store'
+import Admin from './admin/store/Store'
+import Prom from './promonitor/store/Store'
+import Main from './main/store/Store'
 import Vuex from 'vuex';
 // import axios from 'axios'
 // import 'jquery';
@@ -13,7 +16,14 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 
-const store  = new Vuex.Store(StoreData)
+const store  = new Vuex.Store({
+  modules: {
+    admin: Admin,
+    promonitor: Prom,
+    main: Main
+  }
+  
+})
 
 const router = new VueRouter({
   routes,

@@ -6,6 +6,7 @@
         .form-group.form-inline
             label(for='current-password') Password:
             input.form-control(ref='password' autocomplete='current-password' type='password')
+        
 </template>
 
 <style lang='scss' scoped>

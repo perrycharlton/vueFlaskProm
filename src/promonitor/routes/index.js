@@ -1,6 +1,6 @@
 import Courses from '../components/Courses.vue'
 import Students from '../components/Students.vue'
-import Promonitor from '../components/loginForm.vue'
+import Promonitor from '../components/Promonitor.vue'
 
 export default {
         // This is the Promonitor Section

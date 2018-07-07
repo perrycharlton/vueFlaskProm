@@ -1,14 +1,17 @@
 <template lang="pug">
     .form
         form
-            basicLogin(ref='child')
-            // emailLogin(ref='child')
-            .space
-            button.btn.btn-primary(@click.prevent="login()") Login
-            button.btn.btn-primary(@click="logOut()") Logout
+            template(v-if="!Status")
+                basicLogin(ref='child')
+                // emailLogin(ref='child')
+                .space
+                button.btn.btn-primary(@click.prevent="login()") Login
+            template(v-if="Status")
+                button.btn.btn-primary(@click="logOut()") Logout
             button.btn.btn-primary(@click="goHome") Home
         div.course {{ Status }}
-        div {{ User }}
+        div Errors: {{ Errors }}
+        div {{ User.username }}
         router-view
 </template>
 
@@ -16,6 +19,7 @@
 
 import { adminLogOut, adminLogIn } from "../external/get-admin-data"
 import basicLogin from "../../slots/BasicLogin"
+import { mapState, mapGetters } from 'vuex'
 // import emailLogin from "../slots/EmailLogin"
 
 export default {
@@ -24,58 +28,37 @@ export default {
         basicLogin
         // emailLogin
     },
-    data() {     
-        return {
-            credentials: {
-                username: '',
-                password: ''
-            },
-            status: "",
-            authenticated: false
-        }
-    },
     computed: {
-        User() {
-            return this.$store.getters.currentState.username
-        },
-        Status() {
-            return this.$store.getters.authStatus
-        }
-
+        ...mapState('admin', {
+            User: 'User',
+            Status: 'Status'
+        }),
+        ...mapGetters('admin', {
+            Errors: 'Errors'
+        })
     },
+
     mounted() {
-        this.$store.dispatch('updatePageTitle', "This is the Admin Page")
+        this.$store.dispatch('main/updatePageTitle', "This is the Admin Page")
+        this.$store.dispatch('main/updateImage', "https://picsum.photos/1000/1000/?image=1057")
     },
     methods: {
         goHome() { this.$router.push('/')},
 
-        async login() { 
-            console.log('login')
+        login() { 
+            // console.log('login')
             const credentials = {
                 // email: this.$refs.child.$refs.email.value,
                 username: this.$refs.child.$refs.username.value,
                 password: this.$refs.child.$refs.password.value
             }
-            this.$store.dispatch('AdminLogin', credentials)
+            this.$store.dispatch('admin/AdminLogin', credentials)
         },
 
 
-        async logOut() { 
-
-            let r = await adminLogOut()
-            console.log(r)
-            this.status = r.status
-            // this.authenticated = false
-            if (r.status === 'logged out') {
-                this.$router.push('/')
-            } 
+        async logOut() {
+            this.$store.dispatch('admin/AdminLogout') 
             },
-
-        async sortUsers(object) { 
-            let reverse = this.isActive
-            this.posts = await this.$store.dispatch('sortUsersFirstName', {object, reverse})
-            this.isActive = !this.isActive
-            }
     },
     
 }

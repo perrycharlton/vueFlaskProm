@@ -1,4 +1,5 @@
 <template lang="pug">
+import { mapActions } from 'vuex';
     div(id="Users")
         button(@click="peopleData()") Get Users
         button(@click="peopleAll()") Get All
@@ -27,7 +28,12 @@ export default {
         }
     },
     methods: {
+
+        // mapActions({
+        //     peopleData:'getData'
+        // }),
         goHome() { this.$router.push('/')},
+
         async peopleData() { this.posts = await this.$store.dispatch('getData')},
         
         async filterUsers(type) { this.posts = await this.$store.dispatch('userFilter', type)},

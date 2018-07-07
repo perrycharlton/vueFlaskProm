@@ -1,12 +1,12 @@
+import Home from '../components/Home.vue'
 
-import Start from '../components/Start.vue'
 import Faq from '../components/Faq.vue'
 import About from '../components/About.vue'
-
-import Promonitor from '../promonitor/routes/index'
+import About2 from '../components/About2.vue'
+import Promonitor from '../../promonitor/routes/index'
 // import proRoutes from '../promonitor/routes/index'
 
-import Admin from '../admin/routes/index'
+import Admin from '../../admin/routes/index'
 
 import store from "../store/Store"
 
@@ -37,7 +37,7 @@ export const routes = [
         {
             path: '/',
             name: 'home',
-            component: Start,            
+            component: Home,            
         },
         {
             path: '/faq',
@@ -47,7 +47,7 @@ export const routes = [
         {
             path: '/about',
             name: 'about',
-            component: About,
+            component: About2,
             // beforeEnter: ifNotAuthenticated,
         },
         // This is the Promonitor Section

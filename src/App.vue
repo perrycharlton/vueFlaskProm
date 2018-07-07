@@ -1,36 +1,51 @@
 <template lang='pug'>
-  .pageTop
-    myHeader
-    .mainContainer
-      home
+  .backImg(:style=`backgroungImage`)
+    .page
+      topNavBar.topNavBar
+      start.start
+    
+
 </template>
 
 <script>
-import home from './pages/Home.vue'
-import myHeader from './components/Header.vue'
-
+import start from './main/pages/Start.vue'
+import topNavBar from './main/components/TopNav.vue'
+import { mapState } from "vuex";
 export default {
   components: {  
-    home, 
-    myHeader
-  }
+    start, 
+    topNavBar
+  },
+  computed: mapState("main", {
+    Image: "Image",
+    backgroungImage() {
+        return `background-image:url(${this.Image});`
+    }
+  })
 }
 </script>
 
 <style lang="scss">
- body {
-  background: rgb(206, 147, 147);
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-html, body {
-  height: calc(100% - 50px);
+
+body {
+	margin: 0;
+	background: rgb(255, 255, 255);
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
 }
-.pageTop{
+.page{
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 20px 1fr 20px;
-  .mainContainer {
-    grid-column:2;
-  }
 }
+.backImg{
+  height: 100vh;
+  background-color: rgba(167, 166, 166, 0.616);
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
 </style>

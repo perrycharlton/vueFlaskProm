@@ -1,46 +1,69 @@
 <template lang="pug">
-    div.dropdown(id="DisplayCourses") 
-        button.btn.btn-secondary.dropdown-toggle(
-            v-if="courses.length"
-            type='button'
-            id="dropdownMenuButton" 
-            data-toggle="dropdown" 
-            aria-haspopup="true" 
-            aria-expanded="false"
-            )  {{ text }}
-            .dropdown-menu.courses(v-if="courses" aria-labelledby="dropdownMenuButton")
-                .course(v-for="course in courses") 
-                    a.dropdown-item(href='' :name="course.c_code" :tooltip="course.c_title") {{course.c_code}} - {{ course.c_title}}              
+  selectButtonVue(:items='CourseCodes' v-on:selectCode="selectCode($event)")             
 </template>
-
 <script>
 
-export default {  
-    props:['courses', 'text'],
-    data() {  
-        return {
-           
-        }
+import { mapState } from "vuex";
+import selectButtonVue from '../slots/selectButton.vue';
+export default {
+  components: {
+        selectButtonVue
     },
-    methods: {
-
-    },
-    
-}
-</script >
-<style lang='scss' scoped>
-div.courses{
-    padding: 1px;
-    .users {
-        background-color: lightcoral;
-        padding: 1em;
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        justify-self:center;
-        user{    
-            justify-self:center;       
-        }
+  computed: mapState("promonitor", {
+    CourseCodes: "CourseCodes"
+  }),
+  methods: {
+    selectCode: (code) => {
+      console.log(code)
+      // axois call to get course codes or check 
     }
+  },
+  mounted() {
+    console.log("checking codes");
+ 
+    if (this.$store.getters['promonitor/CourseCodes'] == undefined){
+      // console.log('the stor is empty', this.$store.getters['promonitor/CourseCodes'])
+      if (localStorage.getItem("C_Codes") == undefined) {
+        this.$store.dispatch('promonitor/get_codes')
+      } else {
+        let codes = JSON.parse(localStorage.getItem("C_Codes"))
+        this.$store.dispatch('promonitor/saveCourseCodes',codes)
+        let User = this.$store.getters['promonitor/User']
+        this.$store.dispatch('promonitor/UpdateMessage', `${User.first_name}, please select the area you are interested in!`)
+      }
+    }
+  }
+};
+</script >
+
+<style lang='scss' scoped>
+.select {
+  position: relative;
+    padding: 15px 10px;
+    display: inline-block;
+    background: rgb(122, 122, 122);
+    border-radius: 5px;
 }
+.items{
+  position: absolute;
+  display: none; // HIDE
+  border-radius: 5px;
+  padding: 15px 10px;
+  background: rgb(122, 122, 122);
+}
+.codeItems {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer; 
+  padding: 3px;
+}
+.select:hover ~ .items, .items:hover{
+    background: #d5d5d5;
+    display: block; // HIDE
+  }
+  .codeItems:hover{
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+
 </style>
