@@ -1,3 +1,4 @@
+// require('dotenv').config()
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import 'bootstrap'

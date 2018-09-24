@@ -11,7 +11,7 @@
 
 import { getLogin } from "../external/get-proMon-data"
 import  ProMon from "./ProMon.vue";
-import  DisplayCourses  from "./DisplayCourses.vue";
+import  DisplayCourses  from "./Menu.vue";
 export default {
     data() {
     return {

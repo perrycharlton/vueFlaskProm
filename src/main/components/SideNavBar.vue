@@ -40,9 +40,9 @@ export default {
   
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
-@import "node_modules/bootstrap/scss/bootstrap";
+// @import "node_modules/bootstrap/scss/bootstrap";
   
    .navbar {
        grid-column: 1;

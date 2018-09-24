@@ -17,8 +17,8 @@ export default {
 
 .content {
   display: grid;
-  grid-row-gap: .2em;
-  grid-template-columns: 1fr 5fr 1fr;
+  // grid-row-gap: .2em;
+  grid-template-columns: 0.5fr 5fr 0.5fr;
   grid-template-rows: fit-content(600px) minmax(150px, auto);
 }
 
@@ -28,11 +28,12 @@ export default {
 }
 .view{
   grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
-  display: grid;
-  background-color: #0003;
+  // grid-row: 2 / span 1;
+  // display: grid;
+  background-color: rgba(65, 50, 50, 0.342);
+
   border-radius: 5px;
-  padding: 10px;
+  padding: 0;
 }
 
 </style>

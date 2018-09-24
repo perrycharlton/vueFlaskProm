@@ -1,5 +1,6 @@
 <template lang='pug'>
-    h1 Hello
+    .container
+        h1 Hello
 </template>
 <script>
 
@@ -11,5 +12,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.container{
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  display: grid;
+  background-color: #0003;
+  border-radius: 5px;
+  padding: 10px;
+}
 </style>

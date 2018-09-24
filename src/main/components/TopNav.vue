@@ -18,8 +18,6 @@
         span
 </template>
 <script>
-// import Promonitor from "../../promonitor/components/promNav.vue";
-// import Admin from "../../admin/components/adminNav.vue";
 export default {
   data: () => {
     return {
@@ -34,20 +32,19 @@ export default {
     }
 };
 </script>
-<style lang="scss">
-:root {
-  --background: rgba(0, 214, 170, 0.85);
-}
+<style lang="scss" scoped>
 
+@import '../../scss/custom.scss';
 header {
+ 
     grid-row: 1;
     grid-column: 1;
-  background: var(--background);
+  background: $header-background;
   text-align: center;
-//   position: fixed;
   z-index: 999;
   width: 100%;
 }
+
 
 .nav-toggle {
   display: none;
@@ -74,19 +71,19 @@ header {
   position: relative;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  content: "";
-  position: absolute;
-}
+// .nav-toggle-label span::before,
+// .nav-toggle-label span::after {
+//   content: "";
+//   position: absolute;
+// }
 
-.nav-toggle-label span::before {
-  bottom: 7px;
-}
+// .nav-toggle-label span::before {
+//   bottom: 7px;
+// }
 
-.nav-toggle-label span::after {
-  top: 7px;
-}
+// .nav-toggle-label span::after {
+//   top: 7px;
+// }
 
 nav {
   position: absolute;
@@ -169,21 +166,21 @@ nav a:hover {
     position: relative;
   }
 
-  nav a::before {
-    content: "";
-    display: block;
-    height: 5px;
-    background: black;
-    position: absolute;
-    top: -0.75em;
-    left: 0;
-    right: 0;
-    transform: scale(0, 1);
-    transition: transform ease-in-out 250ms;
-  }
+  // nav a::before {
+  //   content: "";
+  //   display: block;
+  //   height: 5px;
+  //   background: black;
+  //   position: absolute;
+  //   top: -0.75em;
+  //   left: 0;
+  //   right: 0;
+  //   transform: scale(0, 1);
+  //   transition: transform ease-in-out 250ms;
+  // }
 
-  nav a:hover::before {
-    transform: scale(1, 1);
-  }
+  // nav a:hover::before {
+  //   transform: scale(1, 1);
+  // }
 }
 </style>

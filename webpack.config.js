@@ -1,5 +1,6 @@
 const path = require('path');
-const devMode = process.env.NODE_ENV !== 'production'
+
+// const devMode = process.env.NODE_ENV !== 'production'
 var webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
@@ -19,6 +20,8 @@ module.exports = {
         filename: 'static/index.js',
         publicPath: "/dist"
     },
+    
+
     node: {
         fs: 'empty'
     },
@@ -139,27 +142,12 @@ module.exports = {
             template: './src/index.pug',
             filename: 'index.html'
         }),
-        // new webpack.ProvidePlugin({
-        //     $: 'jquery',
-        //     jQuery: 'jquery',
-        //     'window.jQuery': 'jquery',
-        //     tether: 'tether',
-        //     Tether: 'tether',
-        //     'window.Tether': 'tether',
-        //     Popper: ['popper.js', 'default'],
-        //     'window.Tether': 'tether',
-        //     Alert: 'exports-loader?Alert!bootstrap/js/dist/alert',
-        //     Button: 'exports-loader?Button!bootstrap/js/dist/button',
-        //     Carousel: 'exports-loader?Carousel!bootstrap/js/dist/carousel',
-        //     Collapse: 'exports-loader?Collapse!bootstrap/js/dist/collapse',
-        //     Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
-        //     Modal: 'exports-loader?Modal!bootstrap/js/dist/modal',
-        //     Popover: 'exports-loader?Popover!bootstrap/js/dist/popover',
-        //     Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
-        //     Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
-        //     Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
-        //     Util: 'exports-loader?Util!bootstrap/js/dist/util'
-        // }),
-        //   new WebpackMd5Hash()
+        new webpack.LoaderOptionsPlugin({
+            options: {
+              stylus: {
+                import: [path.resolve(__dirname, '../src/scss/custom.scss')]
+              }
+            }
+          })
     ]
 };

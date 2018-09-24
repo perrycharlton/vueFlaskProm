@@ -26,26 +26,36 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+// @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
+body, html {
+  height: 100%;
+}
 body {
 	margin: 0;
-	background: rgb(255, 255, 255);
-	font-family: 'Work Sans', sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+	// background: rgb(255, 255, 255);
+	// font-family: 'Work Sans', sans-serif;
 	font-weight: 400;
 }
 .page{
   display: grid;
 }
 .backImg{
-  height: 100vh;
-  background-color: rgba(167, 166, 166, 0.616);
+  background:  no-repeat center center fixed;
+  //  background-attachment: fixed;
+  // background-color: grey;
+    // background-size: 100%;
+  min-height: 100%;
+  // max-width: 100vw;
+  // background-color: rgba(167, 166, 166, 0.616);
   background-blend-mode: multiply;
   background-size: cover;
+
 }
 
 </style>

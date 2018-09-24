@@ -30,8 +30,10 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 $primary-color: #66615b;
+
+
 .list-item1 {
   height: 50px;
   padding-left: 20px;
