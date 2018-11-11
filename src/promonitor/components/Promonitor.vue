@@ -33,6 +33,7 @@ import {
 } from "../external/get-proMon-data";
 import Menu from "../components/Menu.vue";
 import Students from "../components/Students.vue";
+import Student from "../slots/student.vue";
 import StudentsHeader from "../slots/studentsHeader.vue";
 
 import Login from "../components/Login.vue";
